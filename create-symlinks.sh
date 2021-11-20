@@ -2,6 +2,9 @@
 dotfiles_dir=~/dotfiles
 backups_dir=~/backups
 
+[[ ! -d $backups_dir ]] && mkdir $backups_dir
+
+
 #==============
 # Delete existing dot files and folders
 #==============
@@ -47,7 +50,7 @@ ln -sf $dotfiles_dir/bashrc ~/.bashrc
 ln -sf $dotfiles_dir/linux-tmux ~/.tmux
 ln -sf $dotfiles_dir/zsh/zsh_prompt ~/.zsh_prompt
 ln -sf $dotfiles_dir/zsh/zshrc ~/.zshrc
-ln -sf $dotfiles_dir/aliases ~/.aliases
+ln -sf $dotfiles_dir/zsh/aliases ~/.aliases
 ln -sf $dotfiles_dir/config ~/.config
 
 #==============

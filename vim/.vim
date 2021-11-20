@@ -1,1 +1,0 @@
-/home/drahlous/dotfiles/vim
