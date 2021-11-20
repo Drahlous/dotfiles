@@ -36,6 +36,10 @@ else
 fi
 
 
+# Nerd Fonts
+sudo apt install -y fonts-hack-ttf
+fc-cache -f -v
+
 # ---
 # Install git-completion and git-prompt
 # ---

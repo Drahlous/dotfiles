@@ -1,15 +1,15 @@
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/mstachow/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
-
 
 zstyle ':omz:update' mode auto      # update automatically without asking
 
@@ -57,9 +57,40 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+
+# Override theme prompt to 2 lines
+# Switch path color based on last command return status
+PROMPT="%(?:%{$FG[118]%}%~ :%{$FG[214]%}%~ )%{$reset_color%}
+"
+PROMPT+='%{$fg[cyan]%}➜%{$reset_color%} $(git_prompt_info)'
+
+# Override the git prompt dirty sign to use unequal instead of cross
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}≠"
+
+
+
 # Aliases moved to ~/.aliases
 . ~/.aliases
 
 export EDITOR='nvim'
+
+export XDG_RUNTIME_DIR=$HOME/xdg
+
+
+# 0 - Owner (Keep all permissions)
+# 2 - Group (Remove write permissions)
+# 7 - World (Remove all permissions)
+umask 027
+
+
+# For backspace inserting ^? in vi
+stty erase '^?'
+
+
+bindkey "^A" vi-beginning-of-line
+bindkey "^E" vi-end-of-line
+
+
+
 
 
