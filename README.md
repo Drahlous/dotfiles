@@ -1,6 +1,6 @@
 ```
 cd
-git clone git@github.com:Drahlous/dotfiles.git
+git clone --recurse-submodules git@github.com:Drahlous/dotfiles.git
 ```
 
 ```
