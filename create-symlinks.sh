@@ -30,9 +30,6 @@ sudo rm -rf ~/.zshrc > /dev/null 2>&1
 cp ~/.aliases $backups_dir > /dev/null 2>&1
 sudo rm -rf ~/.aliases > /dev/null 2>&1
 
-cp ~/.gitconfig $backups_dir > /dev/null 2>&1
-sudo rm -rf ~/.gitconfig > /dev/null 2>&1
-
 cp ~/.antigen $backups_dir > /dev/null 2>&1
 sudo rm -rf ~/.antigen > /dev/null 2>&1
 cp ~/.antigen.zsh $backups_dir > /dev/null 2>&1
