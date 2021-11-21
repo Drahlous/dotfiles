@@ -1,0 +1,9 @@
+# Override theme prompt to 2 lines
+# Switch path color based on last command return status
+PROMPT="%(?:%{$FG[118]%}%~ :%{$FG[214]%}%~ )%{$reset_color%}
+"
+PROMPT+='%{$fg[cyan]%}➜%{$reset_color%} $(git_prompt_info)'
+
+# Override the git prompt dirty sign to use unequal instead of cross
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}≠"
+

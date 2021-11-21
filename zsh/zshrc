@@ -57,17 +57,8 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-
-# Override theme prompt to 2 lines
-# Switch path color based on last command return status
-PROMPT="%(?:%{$FG[118]%}%~ :%{$FG[214]%}%~ )%{$reset_color%}
-"
-PROMPT+='%{$fg[cyan]%}➜%{$reset_color%} $(git_prompt_info)'
-
-# Override the git prompt dirty sign to use unequal instead of cross
-ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}≠"
-
-
+# Prompt moved to ~/.zsh_prompt
+. ~/.zsh_prompt
 
 # Aliases moved to ~/.aliases
 . ~/.aliases
@@ -75,7 +66,7 @@ ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}≠"
 export EDITOR='nvim'
 
 export XDG_RUNTIME_DIR=$HOME/xdg
-
+export XDG_CONFIG_HOME=$HOME/.config
 
 # 0 - Owner (Keep all permissions)
 # 2 - Group (Remove write permissions)
