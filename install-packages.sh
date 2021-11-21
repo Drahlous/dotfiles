@@ -37,7 +37,10 @@ fi
 
 
 # Nerd Fonts
+sudo apt-get install fonts-powerline
 sudo apt install -y fonts-hack-ttf
+mkfontscale
+mkfontdir
 fc-cache -f -v
 
 # ---

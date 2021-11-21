@@ -56,11 +56,18 @@ ln -sf $dotfiles_dir/linux-tmux ~/.tmux
 
 cp ~/.tmux.conf $backups_dir > /dev/null 2>&1
 sudo rm -rf ~/.tmux.conf > /dev/null 2>&1
+ln -sf $dotfiles_dir/linux-tmux/tmux.conf ~/.tmux.conf
 
 cp ~/.tmux.conf.local $backups_dir > /dev/null 2>&1
 sudo rm -rf ~/.tmux.conf.local > /dev/null 2>&1
 ln -sf $dotfiles_dir/linux-tmux/tmux.conf.local ~/.tmux.conf.local
 
+#=============
+# Xresources
+#=============
+cp -r ~/.Xresources $backups_dir > /dev/null 2>&1
+sudo rm -rf ~/.Xresources > /dev/null 2>&1
+ln -sf $dotfiles_dir/Xresources ~/.Xresources
 
 #==============
 # Set zsh as the default shell

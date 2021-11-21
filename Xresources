@@ -1,0 +1,50 @@
+xterm*termName: xterm-256color
+xterm*faceName: Hack
+xterm*faceSize: 12
+xterm*loginShell: true
+xterm*internalBorder: 6
+xterm*scrollBar: False
+xterm*scrollKey: true
+xterm*saveLines: 4096
+xterm*multiClickTime: 250
+xterm*selectToClipboard: True
+
+!https://www.cs.colostate.edu/~mcrob/toolbox/unix/keyboard.html
+*VT100.Translations: #override \
+              <Key>BackSpace: string(0x7F)\n\
+              <Key>Delete:    string("\033[3~")\n\
+              <Key>Home:      string("\033[1~")\n\
+              <Key>End:       string("\033[4~")\n\
+              Shift Ctrl <Key>C: copy-selection(CLIPBOARD) \n\
+              Shift Ctrl <Key>V: paste-selection(CLIPBOARD) \n\
+              Ctrl <Key> minus: smaller-vt-font() \n\
+              Ctrl <Key> plus: larger-vt-font()
+*ttyModes: erase ^?
+xterm*locale: true
+
+
+! Allow escape sequences to configure xterm dynamically
+*VT100.allowWindowOps: true
+*VT100.allowTitleOps: true
+*VT100.allowFontOps: true
+
+! Dracula Xresources palette
+xterm*foreground: #F8F8F2
+xterm*background: #282A36
+xterm*color0:     #000000
+xterm*color8:     #4D4D4D
+xterm*color1:     #FF5555
+xterm*color9:     #FF6E67
+xterm*color2:     #50FA7B
+xterm*color10:    #5AF78E
+xterm*color3:     #F1FA8C
+xterm*color11:    #F4F99D
+xterm*color4:     #BD93F9
+xterm*color12:    #CAA9FA
+xterm*color5:     #FF79C6
+xterm*color13:    #FF92D0
+xterm*color6:     #8BE9FD
+xterm*color14:    #9AEDFE
+xterm*color7:     #BFBFBF
+xterm*color15:    #E6E6E6
+
