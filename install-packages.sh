@@ -17,6 +17,13 @@ else
     echo "crul FAILED TO INSTALL!!!" >> $log_file
 fi
 
+sudo apt install lua5.3
+if type -p lua > /dev/null; then
+    echo "lua Installed" >> $log_file
+else
+    echo "lua FAILED TO INSTALL!!!" >> $log_file
+fi
+
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 

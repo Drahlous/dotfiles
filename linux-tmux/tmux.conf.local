@@ -345,7 +345,6 @@ unbind C-b
 set -g prefix C-a
 bind C-a send-prefix
 
-
 # C-a C-a toggle
 unbind ^A
 bind ^A last-window
@@ -353,9 +352,8 @@ bind ^A last-window
 # C-a a sends C-a for beginning of line
 bind a send-prefix
 
-
+# Unbind tmux.conf edit key
 unbind e
-
 
 # move status line to top
 #set -g status-position top
