@@ -1,4 +1,5 @@
 
+mkdir ~/tmp
 log_file=~/install_progress_log.txt
 
 sudo apt-get update
