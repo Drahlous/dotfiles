@@ -1,8 +1,12 @@
 #!/bin/bash
 dotfiles_dir=~/dotfiles
 backups_dir=~/backups
+tmp_dir=~/tmp
 
 [[ ! -d $backups_dir ]] && mkdir $backups_dir
+
+[[ ! -d $tmp_dir ]] && mkdir $tmp_dir
+
 
 #=============
 # bash
@@ -45,7 +49,7 @@ ln -sf $dotfiles_dir/vim ~/.vim
 
 cp ~/.vimrc $backups_dir > /dev/null 2>&1
 sudo rm -rf ~/.vimrc > /dev/null 2>&1
-ln -sf $dotfiles_dir/vimrc ~/.vimrc
+#ln -sf $dotfiles_dir/vimrc ~/.vimrc
 
 #=============
 # tmux

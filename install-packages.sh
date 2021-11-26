@@ -1,6 +1,19 @@
 
 log_file=~/install_progress_log.txt
 
+sudo apt-get update
+
+
+# C++ essentials
+sudo apt-get -y install gcc
+sudo apt-get -y install g++
+sudo apt-get -y install build-essential
+
+sudo apt-get -y install gdb
+
+sudo apt-get -y install clang
+
+
 sudo apt-get -y install zsh
 if type -p zsh > /dev/null; then
     echo "zsh Installed" >> $log_file
@@ -68,12 +81,6 @@ else
     echo "Ack FAILED TO INSTALL!!!" >> $log_file
 fi
 
-sudo apt-get install silversearcher-ag
-if type -p ag > /dev/null; then
-    echo "Silver searcher Installed" >> $log_file
-else
-    echo "Silver searcher FAILED TO INSTALL!!!" >> $log_file
-fi
 
 sudo apt-get -y install tmux
 if type -p tmux > /dev/null; then
@@ -82,12 +89,37 @@ else
     echo "tmux FAILED TO INSTALL!!!" >> $log_file
 fi
 
+
+
+#==============
+# Rust
+#==============
 sudo apt-get -y install cargo
 if type -p cargo > /dev/null; then
     echo "cargo Installed" >> $log_file
 else
     echo "cargo FAILED TO INSTALL!!!" >> $log_file
 fi
+
+cargo install bat
+
+#==============
+# Tools
+#==============
+sudo apt-get install -y silversearcher-ag
+if type -p ag > /dev/null; then
+    echo "Silver searcher Installed" >> $log_file
+else
+    echo "Silver searcher FAILED TO INSTALL!!!" >> $log_file
+fi
+
+sudo apt-get install -y ripgrep
+if type -p rg > /dev/null; then
+    echo "Ripgrep Installed" >> $log_file
+else
+    echo "Ripgrep FAILED TO INSTALL!!!" >> $log_file
+fi
+
 
 #==============
 # Give the user a summary of what has been installed
