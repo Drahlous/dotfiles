@@ -34,11 +34,11 @@ sudo rm -rf ~/.aliases > /dev/null 2>&1
 ln -sf $dotfiles_dir/zsh/aliases ~/.aliases
 
 #=============
-# config
+# nvim
 #=============
-cp -r ~/.config $backups_dir > /dev/null 2>&1
-sudo rm -rf ~/.config > /dev/null 2>&1
-ln -sf $dotfiles_dir/config ~/.config
+cp -r ~/.config/nvim $backups_dir > /dev/null 2>&1
+sudo rm -rf ~/.config/nvim > /dev/null 2>&1
+ln -sf $dotfiles_dir/config/nvim ~/.config/nvim
 
 #=============
 # vim

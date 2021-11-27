@@ -1,6 +1,6 @@
 xterm*termName: xterm-256color
 xterm*faceName: Hack
-xterm*faceSize: 12
+xterm*faceSize: 14
 xterm*loginShell: true
 xterm*internalBorder: 6
 xterm*scrollBar: False
