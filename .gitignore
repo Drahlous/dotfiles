@@ -5,3 +5,6 @@ fonts.scale
 # WSL Config
 wslu
 
+
+# Vim
+.netrwhist
