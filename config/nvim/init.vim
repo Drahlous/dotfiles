@@ -23,7 +23,6 @@ set tags=./tags,tags;
 " Use System Clipboard
 set clipboard=unnamedplus
 
-
 "-----------------------------------------------------------------------------
 " Settings START
 
@@ -70,8 +69,8 @@ map <leader>l :tabnext<cr>
 map <leader>h :tabprevious<cr>
 
 " Buffers
-map <leader>bn :bnext<cr>
-map <leader>bp :bprevious<cr>
+"map <leader>bn :bnext<cr>
+"map <leader>bp :bprevious<cr>
 
 " Open a new tab with the current buffer's path
 " Good for editing files in the same directory
