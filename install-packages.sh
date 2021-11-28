@@ -1,79 +1,112 @@
+#!/bin/bash
 
-mkdir ~/tmp
 log_file=~/install_progress_log.txt
+
+# Install the provided program
+#   Program Name  - Name of the program to be used in the installation command
+#                     e.g. neovim
+#   Target        - Command used to invoke the program once installed
+#                     e.g. nvim
+install_and_log() {
+  program_name=$1
+  target=$2
+
+  # If no target is supplied, assume that the command is the same as the package name
+  [[ '' = "$target" ]] && target=$program_name
+
+  # printf "Attempting to install package %s invoked with command %s\n" $package_name $target
+
+
+  # Install the package if it doesn't already exist
+  if ! command -v $target &> /dev/null
+  then
+    sudo apt-get -y install $program_name
+  else
+    printf "%s is already found, skipping\n" $program_name
+    return 0
+  fi
+
+  [[ 'NULL' = "$target" ]] && printf "%s is a package, skip checking installation\n" "$program_name"  && return 0
+
+  if ! command -v $target &> /dev/null
+  then
+    printf "error: %s FAILED TO INSTALL!\n" $program_name  >> $log_file
+    return 1
+  else
+    printf "%s install success" >> $log_file
+  fi
+
+}
+
+
+#==============
+# START
+#==============
+
+date > $log_file
+
+[[ ! -d ~/tmp ]] && mkdir ~/tmp
 
 sudo apt-get update
 
 
+#==============
+# General Dependencies
+#==============
+install_and_log curl
+install_and_log lua5.3 lua
+
+
+#==============
 # C++ essentials
-sudo apt-get -y install gcc
-sudo apt-get -y install g++
-sudo apt-get -y install build-essential
-
-sudo apt-get -y install gdb
-
-sudo apt-get -y install clang
-
-# ZSH
-sudo apt-get -y install zsh
-if type -p zsh > /dev/null; then
-    echo "zsh Installed" >> $log_file
-else
-    echo "zsh FAILED TO INSTALL!!!" >> $log_file
-fi
-
-sudo apt-get install zsh-syntax-highlighting
+#==============
+install_and_log gcc
+install_and_log g++
+install_and_log build-essential NULL
+install_and_log gdb
+install_and_log clang
 
 
+#==============
+# Rust
+#==============
+install_and_log cargo
 
-sudo apt-get -y install curl
-if type -p curl > /dev/null; then
-    echo "curl Installed" >> $log_file
-else
-    echo "crul FAILED TO INSTALL!!!" >> $log_file
-fi
 
-sudo apt install lua5.3
-if type -p lua > /dev/null; then
-    echo "lua Installed" >> $log_file
-else
-    echo "lua FAILED TO INSTALL!!!" >> $log_file
-fi
+#==============
+# Shell Environment
+#==============
+
+# Zsh
+install_and_log zsh
+install_and_log zsh-syntax-highlighting NULL
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-
-sudo apt-get -y install exuberant-ctags
-if type -p ctags-exuberant > /dev/null; then
-    echo "exuberant-ctags Installed" >> $log_file
-else
-    echo "exuberant-ctags FAILED TO INSTALL!!!" >> $log_file
-fi
-
-sudo apt-get -y gtk-redshift
-if type -p redshift > /dev/null; then
-    echo "redshift Installed" >> $log_file
-else
-    echo "redshift FAILED TO INSTALL!!!" >> $log_file
-fi
-
-
 # Nerd Fonts
-sudo apt-get -y install fonts-powerline
-sudo apt install -y fonts-hack-ttf
+install_and_log fonts-powerline NULL
+install_and_log fonts-hack-ttf NULL
 mkfontscale
 mkfontdir
 fc-cache -f -v
 
 
-# Markdown
-sudo apt-get -y install mdless
+#==============
+# CLI Tools
+#==============
 
-# ---
-# Install git-completion and git-prompt
-# ---
-cd ~/
+# Terminal Multiplexer
+install_and_log tmux
+
+# Silver Searcher (grep replacement)
+install_and_log silversearcher-ag ag
+
+# Ripgrep (grep replacement)
+install_and_log ripgrep rg
+
+# git-completion and git-prompt
+cd
 curl -OL https://github.com/git/git/raw/master/contrib/completion/git-completion.bash
 mv ~/git-completion.bash ~/.git-completion.bash
 curl https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
@@ -89,48 +122,28 @@ else
 fi
 
 
-sudo apt-get -y install tmux
-if type -p tmux > /dev/null; then
-    echo "tmux Installed" >> $log_file
-else
-    echo "tmux FAILED TO INSTALL!!!" >> $log_file
-fi
-
-
-
 #==============
-# Rust
+# Editors & File Viewers
 #==============
-sudo apt-get -y install cargo
-if type -p cargo > /dev/null; then
-    echo "cargo Installed" >> $log_file
-else
-    echo "cargo FAILED TO INSTALL!!!" >> $log_file
-fi
 
+# Ctags
+install_and_log exuberant-ctags ctags-exuberant
+
+# Markdown
+install_and_log mdless
+
+# Neovim
+install_and_log neovim nvim
+
+# Bat (Colorful cat)
 cargo install bat
 
-#==============
-# Tools
-#==============
-sudo apt-get install -y silversearcher-ag
-if type -p ag > /dev/null; then
-    echo "Silver searcher Installed" >> $log_file
-else
-    echo "Silver searcher FAILED TO INSTALL!!!" >> $log_file
-fi
-
-sudo apt-get install -y ripgrep
-if type -p rg > /dev/null; then
-    echo "Ripgrep Installed" >> $log_file
-else
-    echo "Ripgrep FAILED TO INSTALL!!!" >> $log_file
-fi
-
 
 #==============
-# Give the user a summary of what has been installed
+# Cleanup and provide a summary of what has been installed
 #==============
+echo -e "\n====== Cleaning up ======\n"
+sudo apt-get -y autoremove
 echo -e "\n====== Summary ======\n"
 cat $log_file
 echo
