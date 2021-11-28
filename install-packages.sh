@@ -14,8 +14,7 @@ install_and_log() {
   # If no target is supplied, assume that the command is the same as the package name
   [[ '' = "$target" ]] && target=$program_name
 
-  # printf "Attempting to install package %s invoked with command %s\n" $package_name $target
-
+  # TODO: Generalize the installation to detect platform and use the appropriate package manager (snap, pacman, etc.)
 
   # Install the package if it doesn't already exist
   if ! command -v $target &> /dev/null
