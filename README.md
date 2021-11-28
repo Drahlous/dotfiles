@@ -12,7 +12,7 @@ cd ~/dotfiles
 
 
 ## Tmux
-
+```
 C_a     Prefix
 
 ### Windows
@@ -37,6 +37,7 @@ l       Move Right
 C_c     Create new session
 $       Rename session
 
+```
 
 ## In Progress
 
