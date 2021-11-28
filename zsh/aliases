@@ -1,9 +1,13 @@
 #!/bin/bash
 
+# Simple Aliases
 alias src='source ~/.zshrc'
 alias cp='cp -i'
 alias rfresh='xrdb -merge ~/.Xresources'
 alias xclip='xclip -selection c'
 alias ls='ls --human-readable --color'
 alias sl='ls --human-readable --color'
+
+# Suffix Aliases
+alias -s md=mdless
 

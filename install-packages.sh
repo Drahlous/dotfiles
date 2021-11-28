@@ -14,7 +14,7 @@ sudo apt-get -y install gdb
 
 sudo apt-get -y install clang
 
-
+# ZSH
 sudo apt-get -y install zsh
 if type -p zsh > /dev/null; then
     echo "zsh Installed" >> $log_file
@@ -23,6 +23,8 @@ else
 fi
 
 sudo apt-get install zsh-syntax-highlighting
+
+
 
 sudo apt-get -y install curl
 if type -p curl > /dev/null; then
@@ -58,11 +60,15 @@ fi
 
 
 # Nerd Fonts
-sudo apt-get install fonts-powerline
+sudo apt-get -y install fonts-powerline
 sudo apt install -y fonts-hack-ttf
 mkfontscale
 mkfontdir
 fc-cache -f -v
+
+
+# Markdown
+sudo apt-get -y install mdless
 
 # ---
 # Install git-completion and git-prompt
