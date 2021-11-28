@@ -32,7 +32,7 @@ install_and_log() {
     printf "error: %s FAILED TO INSTALL!\n" $program_name  >> $log_file
     return 1
   else
-    printf "%s install success" >> $log_file
+    printf "%s install success" "$program_name" >> $log_file
   fi
 
 }
@@ -70,6 +70,12 @@ install_and_log clang
 # Rust
 #==============
 install_and_log cargo
+
+
+#==============
+# Python
+#==============
+install_and_log python3
 
 
 #==============
@@ -120,6 +126,9 @@ else
     echo "Ack FAILED TO INSTALL!!!" >> $log_file
 fi
 
+# Fuzzy Finder
+install_and_log fzf
+
 
 #==============
 # Editors & File Viewers
@@ -137,6 +146,11 @@ install_and_log neovim nvim
 # Bat (Colorful cat)
 cargo install bat
 
+# Tree Sitter
+cargo install tree-sitter-cli
+
+# Doxygen
+install_and_log doxygen
 
 #==============
 # Cleanup and provide a summary of what has been installed
