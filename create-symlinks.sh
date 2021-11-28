@@ -38,7 +38,7 @@ backup_and_symlink() {
   mv $old_path $backups_dir > /dev/null 2>&1
 
   # Create link from old_path to new_path
-  ln -sf $new_path $old_path
+  ln -nsf $new_path $old_path
 
 }
 
