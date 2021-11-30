@@ -1,11 +1,8 @@
 #!/bin/bash
-dotfiles_dir=~/dotfiles
-backups_dir=~/backups
-tmp_dir=~/tmp
 
-[[ ! -d "$backups_dir" ]] && mkdir $backups_dir
+[[ ! -d "$BACKUPS_DIR" ]] && mkdir $BACKUPS_DIR
 
-[[ ! -d "$tmp_dir" ]] && mkdir $tmp_dir
+[[ ! -d "$TMP_DIR" ]] && mkdir $TMP_DIR
 
 [[ ! -d "~/bin" ]] && mkdir ~/bin
 
@@ -35,7 +32,7 @@ backup_and_symlink() {
   [[ '/' = "$new_path" ]] && printf "error: new_path is root!\n" && return 1
 
   # Backup old file
-  mv $old_path $backups_dir > /dev/null 2>&1
+  mv $old_path $BACKUPS_DIR > /dev/null 2>&1
 
   # Create link from old_path to new_path
   ln -nsf $new_path $old_path
@@ -48,26 +45,28 @@ backup_and_symlink() {
 #=============
 
 # bash
-backup_and_symlink ~/.bashrc      $dotfiles_dir/bashrc
+backup_and_symlink ~/.bashrc      $DOTFILES_DIR/bashrc
 
 # zsh
-backup_and_symlink ~/.zshrc       $dotfiles_dir/zsh/zshrc
-backup_and_symlink ~/.zsh_prompt  $dotfiles_dir/zsh/zsh_prompt
-backup_and_symlink ~/.aliases     $dotfiles_dir/zsh/aliases
+backup_and_symlink ~/.zshrc       $DOTFILES_DIR/zsh/zshrc
+backup_and_symlink ~/.zsh_prompt  $DOTFILES_DIR/zsh/zsh_prompt
+backup_and_symlink ~/.aliases     $DOTFILES_DIR/zsh/aliases
 
 # nvim
-backup_and_symlink ~/.config/nvim $dotfiles_dir/config/nvim
+[[ ! -d ~/.config/nvim/lua ]] && mkdir -p ~/.config/nvim/lua
+backup_and_symlink ~/.config/nvim/init.vim      $DOTFILES_DIR/config/nvim/init.vim
+backup_and_symlink ~/.config/nvim/lua/init.lua  $DOTFILES_DIR/config/nvim/lua/init.lua
 
 # vim
-backup_and_symlink ~/.vim         $dotfiles_dir/vim
+backup_and_symlink ~/.vim         $DOTFILES_DIR/vim
 
 # Xresources
-backup_and_symlink ~/.Xresources  $dotfiles_dir/Xresources
+backup_and_symlink ~/.Xresources  $DOTFILES_DIR/Xresources
 
 # tmux
-backup_and_symlink ~/.tmux              $dotfiles_dir/linux-tmux
-backup_and_symlink ~/.tmux.conf         $dotfiles_dir/linux-tmux/tmux.conf
-backup_and_symlink ~/.tmux.conf.local   $dotfiles_dir/linux-tmux/tmux.conf.local
+backup_and_symlink ~/.tmux              $DOTFILES_DIR/linux-tmux
+backup_and_symlink ~/.tmux.conf         $DOTFILES_DIR/linux-tmux/tmux.conf
+backup_and_symlink ~/.tmux.conf.local   $DOTFILES_DIR/linux-tmux/tmux.conf.local
 
 
 #==============
@@ -75,7 +74,7 @@ backup_and_symlink ~/.tmux.conf.local   $dotfiles_dir/linux-tmux/tmux.conf.local
 #==============
 
 # fuz (Note-taking)
-ln -sf $dotfiles_dir/scripts/fuz.sh ~/bin/fuz
+ln -sf $DOTFILES_DIR/scripts/fuz.sh ~/bin/fuz
 
 
 #==============

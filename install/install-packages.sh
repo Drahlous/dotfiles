@@ -54,7 +54,7 @@ sudo apt-get update
 #==============
 install_and_log curl
 install_and_log lua5.3 lua
-
+install_and_log snapd snap
 
 #==============
 # C++ essentials
@@ -96,6 +96,9 @@ mkfontscale
 mkfontdir
 fc-cache -f -v
 
+# Dracula theme
+git clone https://github.com/dracula/zsh.git "$HOME/zsh"
+ln -sf "$DRACULA_THEME/dracula.zsh-theme" "$OH_MY_ZSH/themes/dracula.zsh-theme"
 
 #==============
 # CLI Tools
@@ -138,7 +141,7 @@ install_and_log fzf
 install_and_log exuberant-ctags ctags-exuberant
 
 # Markdown
-install_and_log mdless
+sudo snap install mdless
 
 # Neovim
 install_and_log neovim nvim
