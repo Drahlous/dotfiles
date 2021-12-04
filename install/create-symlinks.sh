@@ -4,7 +4,7 @@
 
 [[ ! -d "$TMP_DIR" ]] && mkdir $TMP_DIR
 
-[[ ! -d "~/bin" ]] && mkdir ~/bin
+[[ ! -d "~/.local/bin" ]] && mkdir -p ~/.local/bin
 
 
 # @brief  Backup the old file/dir to BACKUPS
@@ -74,7 +74,7 @@ backup_and_symlink ~/.tmux.conf.local   $DOTFILES_DIR/linux-tmux/tmux.conf.local
 #==============
 
 # fuz (Note-taking)
-ln -sf $DOTFILES_DIR/scripts/fuz.sh ~/bin/fuz
+ln -sf $DOTFILES_DIR/scripts/fuz.sh ~/.local/bin/fuz
 
 
 #==============

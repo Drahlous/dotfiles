@@ -142,7 +142,13 @@ install_and_log fzf
 # Neovim
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod u+x nvim.appimage
-mv nvim.appimage ~/bin/nvim
+mv nvim.appimage ~/.local/bin/nvim
+
+# Rust Analyzer
+mkdir -p ~/.local/bin
+curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz | gunzip -c - > ~/.local/bin/rust-analyzer
+chmod +x ~/.local/bin/rust-analyzer
+
 
 # Ctags
 install_and_log exuberant-ctags ctags-exuberant
