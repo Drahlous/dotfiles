@@ -11,3 +11,7 @@ alias sl='ls --human-readable --color'
 # Suffix Aliases
 alias -s md=mdless
 
+# Plantuml
+alias plant='java -jar ~/bin/plantuml.jar'
+
+

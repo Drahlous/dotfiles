@@ -6,12 +6,25 @@ call plug#begin("~/.vim/plugged")
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
+" Dracula Theme
+Plug 'dracula/vim', { 'as': 'dracula' }
+
+" Language Server
+Plug 'neovim/nvim-lspconfig'
+
 call plug#end()
 " Plugins END
 "-----------------------------------------------------------------------------
 
+" Dracula Color Scheme
+colorscheme dracula
+
 " Load lua config
 lua require('init')
+
+" LSP config
+lua require'lspconfig'.pyright.setup{}
+lua require'lspconfig'.bashls.setup{}
 
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"

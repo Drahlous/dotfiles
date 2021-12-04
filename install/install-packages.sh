@@ -49,6 +49,8 @@ date > $log_file
 sudo apt-get update
 
 
+
+
 #==============
 # General Dependencies
 #==============
@@ -137,14 +139,16 @@ install_and_log fzf
 # Editors & File Viewers
 #==============
 
+# Neovim
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+chmod u+x nvim.appimage
+mv nvim.appimage ~/bin/nvim
+
 # Ctags
 install_and_log exuberant-ctags ctags-exuberant
 
 # Markdown
 sudo snap install mdless
-
-# Neovim
-install_and_log neovim nvim
 
 # Bat (Colorful cat)
 cargo install bat

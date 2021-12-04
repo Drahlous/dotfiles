@@ -12,4 +12,9 @@
 --    false
 --)
 
+-- local nvim_lsp = require('lspconfig')
+
+-- Python LSP
+-- require'lspconfig'.pyright.setup{}
+
 
