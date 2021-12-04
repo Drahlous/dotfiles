@@ -11,31 +11,47 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Language Server
 Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-compe'
 
 call plug#end()
 " Plugins END
 "-----------------------------------------------------------------------------
 
-" Dracula Color Scheme
-colorscheme dracula
-
-" Load lua config
+" Load lua configs
 lua require('init')
-
+lua require('lsp-config')
+lua require('compe-config')
 
 
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-n>" : "\<S-Tab>"
 
+
 " Set up ctags
 set tags=./tags,tags;
 
-" Use System Clipboard
-set clipboard=unnamedplus
-
 "-----------------------------------------------------------------------------
 " Settings START
+
+""""""""""""""""""""""""""""""""""
+" LSP Config
+""""""""""""""""""""""""""""""""""
+nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
+
+
+" auto-format
+autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
+autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 100)
+autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 100)
+
 
 """"""""""""""""""""""""""""""""""
 " General
@@ -43,6 +59,12 @@ set clipboard=unnamedplus
 set nocompatible
 set number
 set relativenumber
+
+" Dracula Color Scheme
+colorscheme dracula
+
+" Use System Clipboard
+set clipboard=unnamedplus
 
 " Sets how many lines of history Vim has to remember
 set history=500
@@ -224,6 +246,10 @@ set textwidth=500
 """"""""""""""""""""""""""""""""""
 " Always show status line
 set laststatus=2
+
+
+
+
 
 
 " Settings END
