@@ -11,10 +11,8 @@
 --    ]],
 --    false
 --)
-
--- local nvim_lsp = require('lspconfig')
-
--- Python LSP
--- require'lspconfig'.pyright.setup{}
-
+-- LSP config
+require'lspconfig'.pyright.setup{}
+require'lspconfig'.bashls.setup{}
+require'lspconfig'.rust_analyzer.setup{}
 

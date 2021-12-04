@@ -22,9 +22,7 @@ colorscheme dracula
 " Load lua config
 lua require('init')
 
-" LSP config
-lua require'lspconfig'.pyright.setup{}
-lua require'lspconfig'.bashls.setup{}
+
 
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
