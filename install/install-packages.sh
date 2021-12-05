@@ -58,6 +58,10 @@ install_and_log curl
 install_and_log lua5.3 lua
 install_and_log snapd snap
 
+# Node
+sudo npm install -g n
+sudo n latest
+
 #==============
 # C++ essentials
 #==============
@@ -143,6 +147,12 @@ install_and_log fzf
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod u+x nvim.appimage
 mv nvim.appimage ~/.local/bin/nvim
+
+# Pyright Language Server
+sudo npm i -g pyright
+
+# Bash Language Server
+sudo npm i -g bash-language-server
 
 # Rust Analyzer
 mkdir -p ~/.local/bin

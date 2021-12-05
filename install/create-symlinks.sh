@@ -55,7 +55,7 @@ backup_and_symlink ~/.aliases     $DOTFILES_DIR/zsh/aliases
 # nvim
 [[ ! -d ~/.config/nvim/lua ]] && mkdir -p ~/.config/nvim/lua
 backup_and_symlink ~/.config/nvim/init.vim      $DOTFILES_DIR/config/nvim/init.vim
-backup_and_symlink ~/.config/nvim/lua/init.lua  $DOTFILES_DIR/config/nvim/lua/init.lua
+backup_and_symlink ~/.config/nvim/lua           $DOTFILES_DIR/config/nvim/lua
 
 # vim
 backup_and_symlink ~/.vim         $DOTFILES_DIR/vim
