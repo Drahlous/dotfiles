@@ -17,19 +17,19 @@ install_and_log() {
   # TODO: Generalize the installation to detect platform and use the appropriate package manager (snap, pacman, etc.)
 
   # Install the package if it doesn't already exist
-  if ! command -v $target &> /dev/null
+  if ! command -v "$target" &> /dev/null
   then
-    sudo apt-get -y install $program_name
+    sudo apt-get -y install "$program_name"
   else
-    printf "%s is already found, skipping\n" $program_name
+    printf "%s is already found, skipping\n" "$program_name"
     return 0
   fi
 
   [[ 'NULL' = "$target" ]] && printf "%s is a package, skip checking installation\n" "$program_name"  && return 0
 
-  if ! command -v $target &> /dev/null
+  if ! command -v "$target" &> /dev/null
   then
-    printf "error: %s FAILED TO INSTALL!\n" $program_name  >> $log_file
+    printf "error: %s FAILED TO INSTALL!\n" "$program_name"  >> $log_file
     return 1
   else
     printf "%s install success" "$program_name" >> $log_file
@@ -120,7 +120,7 @@ install_and_log silversearcher-ag ag
 install_and_log ripgrep rg
 
 # git-completion and git-prompt
-cd
+cd || exit
 curl -OL https://github.com/git/git/raw/master/contrib/completion/git-completion.bash
 mv ~/git-completion.bash ~/.git-completion.bash
 curl https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
@@ -174,6 +174,9 @@ cargo install tree-sitter-cli
 
 # Doxygen
 install_and_log doxygen
+
+# Shellcheck
+install_and_log shellcheck
 
 #==============
 # Cleanup and provide a summary of what has been installed
