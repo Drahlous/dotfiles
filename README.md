@@ -8,6 +8,8 @@ cd ~/dotfiles
 ./bootstrap.sh
 ```
 
+# Start Docker on WSL2
+`sudo dockerd`
 
 
 ## Tmux

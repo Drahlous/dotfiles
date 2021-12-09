@@ -54,13 +54,29 @@ sudo apt-get update
 #==============
 # General Dependencies
 #==============
+sudo apt-get -y install ca-certificates
+sudo apt-get -y install gnupg
+sudo apt-get -y install lsb-release
 install_and_log curl
+install_and_log lsb-release
 install_and_log lua5.3 lua
 install_and_log snapd snap
+
 
 # Node
 sudo npm install -g n
 sudo n latest
+
+# Docker
+sudo apt-get remove docker docker-engine docker.io containerd runc
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+
 
 #==============
 # C++ essentials
