@@ -13,6 +13,9 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 
+" Rust
+Plug 'rust-lang/rust.vim'
+
 call plug#end()
 " Plugins END
 "-----------------------------------------------------------------------------
@@ -51,6 +54,13 @@ nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
 autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 100)
 autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 100)
+
+
+""""""""""""""""""""""""""""""""""
+" Rust
+""""""""""""""""""""""""""""""""""
+" auto-format on save
+let g:rustfmt_autosave = 1
 
 
 """"""""""""""""""""""""""""""""""
