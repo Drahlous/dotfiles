@@ -20,11 +20,8 @@ call plug#end()
 " Plugins END
 "-----------------------------------------------------------------------------
 
-" Load lua configs
+" Load lua config
 lua require('init')
-lua require('lsp-config')
-lua require('compe-config')
-
 
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
