@@ -11,10 +11,15 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Language Server
 Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-compe'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
 
 " Rust
 Plug 'rust-lang/rust.vim'
+Plug 'simrat39/rust-tools.nvim'
 
 call plug#end()
 " Plugins END
@@ -26,7 +31,6 @@ lua require('init')
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-n>" : "\<S-Tab>"
-
 
 " Set up ctags
 set tags=./tags,tags;
@@ -69,6 +73,17 @@ set relativenumber
 
 " Dracula Color Scheme
 colorscheme dracula
+
+" Set completeopt to have a better completion experience
+" :help completeopt
+" menuone: popup even when there's only one match
+" noinsert: Do not insert text until a selection is made
+" noselect: Do not select, force user to select one from the menu
+set completeopt=menuone,noinsert,noselect
+
+" Avoid showing extra messages when using completion
+set shortmess+=c
+
 
 " Use System Clipboard
 set clipboard=unnamedplus
@@ -220,8 +235,6 @@ endif
 " set encoding=utf8
 " try lang en_US catch endtry
 
-
-
 """"""""""""""""""""""""""""""""""""""""
 " Files, backups
 """"""""""""""""""""""""""""""""""""""""
@@ -237,9 +250,9 @@ set ffs=unix,dos,mac	" Default file types
 set expandtab
 set smarttab            
 
-" 1 Tab = 2 Spaces
-set shiftwidth=2
-set tabstop=2
+" 1 Tab = 4 Spaces
+set shiftwidth=4
+set tabstop=4
 
 set autoindent
 set smartindent
@@ -253,11 +266,6 @@ set textwidth=500
 """"""""""""""""""""""""""""""""""
 " Always show status line
 set laststatus=2
-
-
-
-
-
 
 " Settings END
 "-----------------------------------------------------------------------------
