@@ -1,11 +1,14 @@
 #!/bin/bash
 
-[[ ! -d "$BACKUPS_DIR" ]] && mkdir $BACKUPS_DIR
+set -euo pipefail
 
-[[ ! -d "$TMP_DIR" ]] && mkdir $TMP_DIR
+export DOTFILES_DIR="$HOME/dotfiles"
+export PATHS="$DOTFILES_DIR/zsh/paths"
 
-[[ ! -d "~/.local/bin" ]] && mkdir -p ~/.local/bin
+[[ ! -f "$PATHS" ]] && printf "error: cannot find PATHS file!\n" && exit 1
 
+# Source Paths
+. "$PATHS"
 
 # @brief  Backup the old file/dir to BACKUPS
 #         Replace with a symlink to the file in "dotfiles" dir
@@ -18,7 +21,7 @@
 #
 # @return    0 on success
 #            1 on failure
-backup_and_symlink() {
+safer_symlink() {
   old_path=$1
   new_path=$2
 
@@ -31,42 +34,45 @@ backup_and_symlink() {
   [[ '/' = "$old_path" ]] && printf "error: old_path is root!\n" && return 1
   [[ '/' = "$new_path" ]] && printf "error: new_path is root!\n" && return 1
 
-  # Backup old file
-  mv $old_path $BACKUPS_DIR > /dev/null 2>&1
-
   # Create link from old_path to new_path
   ln -nsf $new_path $old_path
 
 }
 
+#=============
+# Start
+#=============
+printf "Begin Creating Symlinks...\n"
 
 #=============
 # Configuration Files
 #=============
 
+safer_symlink ~/.paths       "$PATHS"
+
 # bash
-backup_and_symlink ~/.bashrc      $DOTFILES_DIR/bashrc
+safer_symlink ~/.bashrc      "$DOTFILES_DIR/bashrc"
 
 # zsh
-backup_and_symlink ~/.zshrc       $DOTFILES_DIR/zsh/zshrc
-backup_and_symlink ~/.zsh_prompt  $DOTFILES_DIR/zsh/zsh_prompt
-backup_and_symlink ~/.aliases     $DOTFILES_DIR/zsh/aliases
+safer_symlink ~/.zshrc       "$DOTFILES_DIR/zsh/zshrc"
+safer_symlink ~/.zsh_prompt  "$DOTFILES_DIR/zsh/zsh_prompt"
+safer_symlink ~/.aliases     "$DOTFILES_DIR/zsh/aliases"
 
 # nvim
 [[ ! -d ~/.config/nvim/lua ]] && mkdir -p ~/.config/nvim/lua
-backup_and_symlink ~/.config/nvim/init.vim      $DOTFILES_DIR/config/nvim/init.vim
-backup_and_symlink ~/.config/nvim/lua           $DOTFILES_DIR/config/nvim/lua
+safer_symlink ~/.config/nvim/init.vim      "$DOTFILES_DIR/config/nvim/init.vim"
+safer_symlink ~/.config/nvim/lua           "$DOTFILES_DIR/config/nvim/lua"
 
 # vim
-backup_and_symlink ~/.vim         $DOTFILES_DIR/vim
+safer_symlink ~/.vim         "$DOTFILES_DIR/vim"
 
 # Xresources
-backup_and_symlink ~/.Xresources  $DOTFILES_DIR/Xresources
+safer_symlink ~/.Xresources  "$DOTFILES_DIR/Xresources"
 
 # tmux
-backup_and_symlink ~/.tmux              $DOTFILES_DIR/linux-tmux
-backup_and_symlink ~/.tmux.conf         $DOTFILES_DIR/linux-tmux/tmux.conf
-backup_and_symlink ~/.tmux.conf.local   $DOTFILES_DIR/linux-tmux/tmux.conf.local
+safer_symlink ~/.tmux              "$DOTFILES_DIR/linux-tmux"
+safer_symlink ~/.tmux.conf         "$DOTFILES_DIR/linux-tmux/tmux.conf"
+safer_symlink ~/.tmux.conf.local   "$DOTFILES_DIR/linux-tmux/tmux.conf.local"
 
 
 #==============
@@ -74,7 +80,7 @@ backup_and_symlink ~/.tmux.conf.local   $DOTFILES_DIR/linux-tmux/tmux.conf.local
 #==============
 
 # fuz (Note-taking)
-ln -sf $DOTFILES_DIR/scripts/fuz.sh ~/.local/bin/fuz
+ln -sfn "$DOTFILES_DIR/scripts/fuz.sh" "$LOCAL_BIN/fuz"
 
 
 #==============
@@ -82,5 +88,5 @@ ln -sf $DOTFILES_DIR/scripts/fuz.sh ~/.local/bin/fuz
 #==============
 sudo chsh -s /bin/zsh
 
-echo "Finished Installation"
+printf "Finished Creating Symlinks!\n\n"
 

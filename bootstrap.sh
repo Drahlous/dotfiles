@@ -1,15 +1,32 @@
 #!/bin/bash
+set -euo pipefail
+
+printf "Begin Bootstrapping...\n"
 
 export DOTFILES_DIR="$HOME/dotfiles"
-export BACKUPS_DIR="$HOME/backups"
-export TMP_DIR="$HOME/tmp"
+export PATHS="$DOTFILES_DIR/zsh/paths"
 
-export OH_MY_ZSH="$HOME/.oh-my-zsh"
-export DRACULA_THEME="$HOME/zsh"
+[[ ! -f "$PATHS" ]] && printf "error: cannot find PATHS file!\n" && exit 1
+
+# Source Paths
+. "$PATHS"
+
+# Create Missing Directories
+[[ ! -d "$LOCAL_BIN" ]] && mkdir -p "$LOCAL_BIN"
+[[ ! -d "$BACKUPS_DIR" ]] && mkdir -p "$BACKUPS_DIR"
+[[ ! -d "$NOTES_DIR" ]] && mkdir -p "$NOTES_DIR"
+
+[[ ! -d "$TMP_DIR" ]] && mkdir -p "$TMP_DIR"
+
+[[ ! -d "$XDG_RUNTIME_DIR" ]] && mkdir -p "$XDG_RUNTIME_DIR"
+[[ ! -d "$XDG_CONFIG_HOME" ]] && mkdir -p "$XDG_CONFIG_HOME"
+
+[[ ! -d "$HOME/.cargo" ]] && mkdir -p "$HOME/.cargo"
+[[ ! -f "$HOME/.cargo/env" ]] && touch "$HOME/.cargo/env"
 
 # Install required packages and programs
-$DOTFILES_DIR/install/install-packages.sh
-
+"$DOTFILES_DIR/install/install-packages.sh" && \
 # Create symlinks to config files and binaries
-$DOTFILES_DIR/install/create-symlinks.sh
+"$DOTFILES_DIR/install/create-symlinks.sh"
 
+printf "\nFinished Bootstrapping!\n\n"

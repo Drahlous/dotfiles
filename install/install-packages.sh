@@ -1,168 +1,133 @@
 #!/bin/bash
 
-log_file=~/install_progress_log.txt
+set -euo pipefail
 
-# Install the provided program
-#   Program Name  - Name of the program to be used in the installation command
-#                     e.g. neovim
-#   Target        - Command used to invoke the program once installed
-#                     e.g. nvim
-install_and_log() {
-  program_name=$1
-  target=$2
+export DOTFILES_DIR="$HOME/dotfiles"
+export PATHS="$DOTFILES_DIR/zsh/paths"
 
-  # If no target is supplied, assume that the command is the same as the package name
-  [[ '' = "$target" ]] && target=$program_name
+[[ ! -f "$PATHS" ]] && printf "error: cannot find PATHS file!\n" && exit 1
 
-  # TODO: Generalize the installation to detect platform and use the appropriate package manager (snap, pacman, etc.)
-
-  # Install the package if it doesn't already exist
-  if ! command -v "$target" &> /dev/null
-  then
-    sudo apt-get -y install "$program_name"
-  else
-    printf "%s is already found, skipping\n" "$program_name"
-    return 0
-  fi
-
-  [[ 'NULL' = "$target" ]] && printf "%s is a package, skip checking installation\n" "$program_name"  && return 0
-
-  if ! command -v "$target" &> /dev/null
-  then
-    printf "error: %s FAILED TO INSTALL!\n" "$program_name"  >> $log_file
-    return 1
-  else
-    printf "%s install success" "$program_name" >> $log_file
-  fi
-
-}
-
+# Source Paths
+. "$PATHS"
 
 #==============
 # START
 #==============
-
-date > $log_file
-
-[[ ! -d ~/tmp ]] && mkdir ~/tmp
+printf "Begin Installing Packages...\n"
+log_file=~/install_progress_log.txt
+date > "$log_file"
 
 sudo apt-get update
-
-
-
 
 #==============
 # General Dependencies
 #==============
-sudo apt-get -y install ca-certificates
-sudo apt-get -y install gnupg
-sudo apt-get -y install lsb-release
-install_and_log curl
-install_and_log lsb-release
-install_and_log lua5.3 lua
-install_and_log snapd snap
-
+sudo apt-get install -y ca-certificates
+sudo apt-get install -y gnupg
+sudo apt-get install -y lsb-release
+sudo apt-get install -y curl
+sudo apt-get install -y lsb-release
+sudo apt-get install -y lua5.3
+sudo apt-get install -y snapd
 
 # Node
-sudo npm install -g n
+sudo apt install -y nodejs npm
+sudo npm install -y -g n
 sudo n latest
 
 # Docker
 sudo apt-get remove docker docker-engine docker.io containerd runc
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+[[ ! -f "/usr/share/keyrings/docker-archive-keyring.gpg" ]] &&  \
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg |   \
+    sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  "deb [arch=$(dpkg --print-architecture) \
+  signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] \
+  https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 sudo apt-get update
-sudo apt-get install docker-ce docker-ce-cli containerd.io
-
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
 #==============
 # C++ essentials
 #==============
-install_and_log gcc
-install_and_log g++
-install_and_log build-essential NULL
-install_and_log gdb
-install_and_log clang
-
+sudo apt-get install -y build-essential
+sudo apt-get install -y gcc
+sudo apt-get install -y g++
+sudo apt-get install -y gdb
+sudo apt-get install -y clang
 
 #==============
 # Rust
 #==============
-install_and_log cargo
-
+sudo apt-get install -y cargo
 
 #==============
 # Python
 #==============
-install_and_log python3
-
+sudo apt-get install -y python3
 
 #==============
 # Shell Environment
 #==============
 
 # Zsh
-install_and_log zsh
-install_and_log zsh-syntax-highlighting NULL
+sudo apt-get install -y zsh
+sudo apt-get install -y zsh-syntax-highlighting
 
 # oh-my-zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+if [[ ! -d "$ZSH" ]]; then
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
+
+# Dracula theme
+if [[ ! -f "$ZSH/themes/dracula.zsh-theme" ]]; then
+    git clone https://github.com/dracula/zsh.git "$DRACULA_THEME"
+    ln -sfn "$DRACULA_THEME/dracula.zsh-theme" "$ZSH/themes/dracula.zsh-theme"
+fi
 
 # Nerd Fonts
-install_and_log fonts-powerline NULL
-install_and_log fonts-hack-ttf NULL
+sudo apt-get install -y fonts-powerline 
+sudo apt-get install -y fonts-hack-ttf
 mkfontscale
 mkfontdir
 fc-cache -f -v
 
-# Dracula theme
-git clone https://github.com/dracula/zsh.git "$HOME/zsh"
-ln -sf "$DRACULA_THEME/dracula.zsh-theme" "$OH_MY_ZSH/themes/dracula.zsh-theme"
 
 #==============
 # CLI Tools
 #==============
-
 # Terminal Multiplexer
-install_and_log tmux
+sudo apt-get install -y tmux
 
 # Silver Searcher (grep replacement)
-install_and_log silversearcher-ag ag
+sudo apt-get install -y silversearcher-ag
 
 # Ripgrep (grep replacement)
-install_and_log ripgrep rg
+sudo apt-get install -y ripgrep
 
 # git-completion and git-prompt
 cd || exit
 curl -OL https://github.com/git/git/raw/master/contrib/completion/git-completion.bash
 mv ~/git-completion.bash ~/.git-completion.bash
 curl https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh -o ~/.git-prompt.sh
-echo "git-completion and git-prompt Installed and Configured" >> $log_file
-
-curl http://beyondgrep.com/ack-2.08-single-file > ~/ack && chmod 0755 !#:3
-sudo mv ~/ack /usr/bin/ack
-sudo chmod 755 /usr/bin/ack
-if type -p ack > /dev/null; then
-    echo "Ack Downloaded and Installed" >> $log_file
-else
-    echo "Ack FAILED TO INSTALL!!!" >> $log_file
-fi
+printf "git-completion and git-prompt Installed and Configured\n" >> "$log_file"
 
 # Fuzzy Finder
-install_and_log fzf
-
+sudo apt-get install -y fzf
 
 #==============
 # Editors & File Viewers
 #==============
-
 # Neovim
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod u+x nvim.appimage
 mv nvim.appimage ~/.local/bin/nvim
+
+# Vim Plug
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # Pyright Language Server
 sudo npm i -g pyright
@@ -171,13 +136,11 @@ sudo npm i -g pyright
 sudo npm i -g bash-language-server
 
 # Rust Analyzer
-mkdir -p ~/.local/bin
-curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz | gunzip -c - > ~/.local/bin/rust-analyzer
-chmod +x ~/.local/bin/rust-analyzer
-
+curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz | gunzip -c - > "$LOCAL_BIN/rust-analyzer"
+chmod +x "$LOCAL_BIN/rust-analyzer"
 
 # Ctags
-install_and_log exuberant-ctags ctags-exuberant
+sudo apt-get install -y exuberant-ctags
 
 # Markdown
 sudo snap install mdless
@@ -189,19 +152,18 @@ cargo install bat
 cargo install tree-sitter-cli
 
 # Doxygen
-install_and_log doxygen
+sudo apt-get install -y doxygen
 
 # Shellcheck
-install_and_log shellcheck
+sudo apt-get install -y shellcheck
 
 #==============
 # Cleanup and provide a summary of what has been installed
 #==============
-echo -e "\n====== Cleaning up ======\n"
+printf "\n====== Cleaning up ======\n"
 sudo apt-get -y autoremove
-echo -e "\n====== Summary ======\n"
-cat $log_file
-echo
-echo "Finished Installing Packages"
-rm $log_file
+printf "\n====== Summary ======\n"
+cat "$log_file"
+printf "\nFinished Installing Packages!\n\n"
+rm "$log_file"
 
