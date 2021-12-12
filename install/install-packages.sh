@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -euo pipefail
+set -eu
 
 export DOTFILES_DIR="$HOME/dotfiles"
 export PATHS="$DOTFILES_DIR/zsh/paths"
