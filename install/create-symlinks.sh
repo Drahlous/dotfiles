@@ -25,7 +25,7 @@ safer_symlink() {
   old_path=$1
   new_path=$2
 
-  printf "linking %s to %s\n" "$old_path" "$new_path"
+  printf "linking %-40s %-40s\n" "$old_path" "$new_path"
   
   [[ '' = "$old_path" ]] && printf "error: old_path is empty!\n" && return 1
   [[ '' = "$new_path" ]] && printf "error: new_path is empty!\n" && return 1
