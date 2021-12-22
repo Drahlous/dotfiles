@@ -19,29 +19,29 @@ printf "Begin Creating Symlinks...\n"
 # Configuration Files
 #=============
 
-ln -sTf "$PATHS" "$HOME/.paths"
+ln -sTfv "$PATHS" "$HOME/.paths"
 
 # bash
-ln -sTf "$DOTFILES_DIR/bashrc" "$HOME/.bashrc"
+ln -sTfv "$DOTFILES_DIR/bashrc" "$HOME/.bashrc"
 
 # zsh
-ln -sTf "$DOTFILES_DIR/zsh/zshrc" "$HOME/.zshrc"
-ln -sTf "$DOTFILES_DIR/zsh/zsh_prompt" "$HOME/.zsh_prompt"
-ln -sTf "$DOTFILES_DIR/zsh/aliases" "$HOME/.aliases"
+ln -sTfv "$DOTFILES_DIR/zsh/zshrc" "$HOME/.zshrc"
+ln -sTfv "$DOTFILES_DIR/zsh/zsh_prompt" "$HOME/.zsh_prompt"
+ln -sTfv "$DOTFILES_DIR/zsh/aliases" "$HOME/.aliases"
 
 # nvim
-ln -sTf "$DOTFILES_DIR/config/nvim" "$HOME/.config/nvim"
+ln -sTfv "$DOTFILES_DIR/config/nvim" "$HOME/.config/nvim"
 
 # vim
-ln -sTf "$DOTFILES_DIR/vim" "$HOME/.vim"
+ln -sTfv "$DOTFILES_DIR/vim" "$HOME/.vim"
 
 # Xresources
-ln -sTf "$DOTFILES_DIR/Xresources" "$HOME/.Xresources"
+ln -sTfv "$DOTFILES_DIR/Xresources" "$HOME/.Xresources"
 
 # tmux
-ln -sTf "$DOTFILES_DIR/linux-tmux" "$HOME/.tmux"
-ln -sTf "$DOTFILES_DIR/linux-tmux/tmux.conf" "$HOME/.tmux.conf"
-ln -sTf "$DOTFILES_DIR/linux-tmux/tmux.conf.local" "$HOME/.tmux.conf.local"
+ln -sTfv "$DOTFILES_DIR/linux-tmux" "$HOME/.tmux"
+ln -sTfv "$DOTFILES_DIR/linux-tmux/tmux.conf" "$HOME/.tmux.conf"
+ln -sTfv "$DOTFILES_DIR/linux-tmux/tmux.conf.local" "$HOME/.tmux.conf.local"
 
 
 #==============
@@ -49,7 +49,7 @@ ln -sTf "$DOTFILES_DIR/linux-tmux/tmux.conf.local" "$HOME/.tmux.conf.local"
 #==============
 
 # fuz (Note-taking)
-ln -sTf "$DOTFILES_DIR/scripts/fuz.sh" "$LOCAL_BIN/fuz"
+ln -sTfv "$DOTFILES_DIR/scripts/fuz.sh" "$LOCAL_BIN/fuz"
 
 
 #==============

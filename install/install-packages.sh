@@ -147,11 +147,11 @@ sudo npm i -g pyright &> "$LOGFILE"
 sudo npm i -g bash-language-server &> "$LOGFILE"
 
 # Clangd
-sudo apt-get install -y clangd-12
-sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-12 100
+sudo apt-get install -y clangd-12 &> "$LOGFILE"
+sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-12 100 &> "$LOGFILE"
 
 # Build Ear
-sudo apt-get install -y bear
+sudo apt-get install -y bear &> "$LOGFILE"
 
 # Rust Analyzer
 curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz | gunzip -c - > "$LOCAL_BIN/rust-analyzer" &> "$LOGFILE"
