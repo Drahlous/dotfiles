@@ -135,6 +135,13 @@ sudo npm i -g pyright
 # Bash Language Server
 sudo npm i -g bash-language-server
 
+# Clangd
+sudo apt-get install -y clangd-12
+sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-12 100
+
+# Build Ear
+sudo apt-get install -y bear
+
 # Rust Analyzer
 curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz | gunzip -c - > "$LOCAL_BIN/rust-analyzer"
 chmod +x "$LOCAL_BIN/rust-analyzer"
