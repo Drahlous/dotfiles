@@ -24,9 +24,9 @@ export PATHS="$DOTFILES_DIR/zsh/paths"
 [[ ! -d "$HOME/.cargo" ]] && mkdir -p "$HOME/.cargo"
 [[ ! -f "$HOME/.cargo/env" ]] && touch "$HOME/.cargo/env"
 
-# Install required packages and programs
-"$DOTFILES_DIR/install/install-packages.sh" && \
 # Create symlinks to config files and binaries
-"$DOTFILES_DIR/install/create-symlinks.sh"
+"$DOTFILES_DIR/install/create-symlinks.sh" && \
+# Install required packages and programs
+"$DOTFILES_DIR/install/install-packages.sh"
 
 printf "\nFinished Bootstrapping!\n\n"

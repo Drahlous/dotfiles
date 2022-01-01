@@ -30,10 +30,10 @@ ln -sTfv "$DOTFILES_DIR/zsh/zsh_prompt" "$HOME/.zsh_prompt"
 ln -sTfv "$DOTFILES_DIR/zsh/aliases" "$HOME/.aliases"
 
 # kitty
-ln -sTfv "$DOTFILES_DIR/config/kitty" "$HOME/.config/kitty"
+ln -sTfv "$DOTFILES_DIR/config/kitty" "$XDG_CONFIG_HOME/kitty"
 
 # nvim
-ln -sTfv "$DOTFILES_DIR/config/nvim" "$HOME/.config/nvim"
+ln -sTfv "$DOTFILES_DIR/config/nvim" "$XDG_CONFIG_HOME/nvim"
 
 # vim
 ln -sTfv "$DOTFILES_DIR/vim" "$HOME/.vim"
@@ -45,7 +45,6 @@ ln -sTfv "$DOTFILES_DIR/Xresources" "$HOME/.Xresources"
 ln -sTfv "$DOTFILES_DIR/linux-tmux" "$HOME/.tmux"
 ln -sTfv "$DOTFILES_DIR/linux-tmux/tmux.conf" "$HOME/.tmux.conf"
 ln -sTfv "$DOTFILES_DIR/linux-tmux/tmux.conf.local" "$HOME/.tmux.conf.local"
-
 
 #==============
 # Application Binaries
