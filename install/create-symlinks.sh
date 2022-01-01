@@ -29,6 +29,9 @@ ln -sTfv "$DOTFILES_DIR/zsh/zshrc" "$HOME/.zshrc"
 ln -sTfv "$DOTFILES_DIR/zsh/zsh_prompt" "$HOME/.zsh_prompt"
 ln -sTfv "$DOTFILES_DIR/zsh/aliases" "$HOME/.aliases"
 
+# kitty
+ln -sTfv "$DOTFILES_DIR/config/kitty" "$HOME/.config/kitty"
+
 # nvim
 ln -sTfv "$DOTFILES_DIR/config/nvim" "$HOME/.config/nvim"
 

@@ -89,12 +89,6 @@ if [[ ! -d "$ZSH" ]]; then
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" &> "$LOGFILE"
 fi
 
-# Dracula theme
-if [[ ! -f "$ZSH/themes/dracula.zsh-theme" ]]; then
-    git clone https://github.com/dracula/zsh.git "$DRACULA_THEME" &> "$LOGFILE"
-    ln -sfn "$DRACULA_THEME/dracula.zsh-theme" "$ZSH/themes/dracula.zsh-theme" &> "$LOGFILE"
-fi
-
 printf "Installing Fonts...\n"
 # Nerd Fonts
 sudo apt-get install -y fonts-powerline &> "$LOGFILE"
