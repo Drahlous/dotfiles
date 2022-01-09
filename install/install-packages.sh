@@ -74,6 +74,11 @@ printf "Installing Python3...\n"
 # Python
 #==============
 sudo apt-get install -y python3 &> "$LOGFILE"
+sudo apt-get install -y python3-pip &> "$LOGFILE"
+
+# Matplotlib
+sudo apt-get install -y python3-matplotlib &> "$LOGFILE"
+sudo apt-get install -y python3-gi-cairo &> "$LOGFILE"
 
 #==============
 # Shell Environment
