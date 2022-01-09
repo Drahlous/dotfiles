@@ -155,8 +155,6 @@ chmod +x "$LOCAL_BIN/rust-analyzer" &> "$LOGFILE"
 sudo apt-get install -y exuberant-ctags &> "$LOGFILE"
 
 printf "Installing Utils...\n"
-# Markdown
-sudo snap install mdless &> "$LOGFILE"
 
 # Bat (Colorful cat)
 cargo install bat &> "$LOGFILE"
