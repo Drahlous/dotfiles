@@ -35,6 +35,8 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-n>" : "\<S-Tab>"
 " Set up ctags
 set tags=./tags,tags;
 
+
+
 "-----------------------------------------------------------------------------
 " Settings START
 
@@ -44,6 +46,8 @@ autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 100)
 autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 100)
 autocmd BufWritePre *.py.in lua vim.lsp.buf.formatting_sync(nil, 100)
 
+" Delete trailing whitespace
+autocmd BufWritePre * :%s/\s\+$//e
 
 """"""""""""""""""""""""""""""""""
 " Rust
@@ -238,7 +242,7 @@ set ffs=unix,dos,mac	" Default file types
 """"""""""""""""""""""""""""""""""""""""
 " Spaces instead of Tabs
 set expandtab
-set smarttab            
+set smarttab
 
 " 1 Tab = 4 Spaces
 set shiftwidth=4
