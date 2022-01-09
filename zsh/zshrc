@@ -65,3 +65,10 @@ export LESS=eFRX
 bindkey "^A" vi-beginning-of-line
 bindkey "^E" vi-end-of-line
 
+# If we're on WSL, update the DISPLAY for X11 forwarding
+kern_ver="$(uname -r)"
+if test "${kern_ver#*WSL}" != "WSL"
+then
+    export DISPLAY="$(grep nameserver /etc/resolv.conf | sed 's/nameserver //'):0"
+fi
+
