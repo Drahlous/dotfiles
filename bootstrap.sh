@@ -29,4 +29,9 @@ export PATHS="$DOTFILES_DIR/zsh/paths"
 # Install required packages and programs
 "$DOTFILES_DIR/install/install-packages.sh"
 
+#==============
+# Set zsh as the default shell
+#==============
+sudo chsh -s /bin/zsh
+
 printf "\nFinished Bootstrapping!\n\n"

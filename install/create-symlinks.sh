@@ -53,11 +53,5 @@ ln -sTfv "$DOTFILES_DIR/linux-tmux/tmux.conf.local" "$HOME/.tmux.conf.local"
 # fuz (Note-taking)
 ln -sTfv "$DOTFILES_DIR/scripts/fuz.sh" "$LOCAL_BIN/fuz"
 
-
-#==============
-# Set zsh as the default shell
-#==============
-sudo chsh -s /bin/zsh
-
 printf "Finished Creating Symlinks!\n\n"
 
