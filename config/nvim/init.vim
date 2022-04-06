@@ -4,6 +4,10 @@ set runtimepath^=~/.vim runtimepath+=~/.vim/after
 " Plugins START
 call plug#begin("~/.vim/plugged")
 
+" FZF
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 " Dracula Theme
