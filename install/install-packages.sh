@@ -161,12 +161,6 @@ sudo apt-get install -y exuberant-ctags &> "$LOGFILE"
 
 printf "Installing Utils...\n"
 
-# Bat (Colorful cat)
-cargo install bat &> "$LOGFILE"
-
-# Tree Sitter
-cargo install tree-sitter-cli &> "$LOGFILE"
-
 # Doxygen
 sudo apt-get install -y doxygen &> "$LOGFILE"
 
