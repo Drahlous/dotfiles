@@ -36,10 +36,17 @@ lua require('init')
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-n>" : "\<S-Tab>"
 
+
+" FZF :h fzf-vim-commands
+
+" Ctrl+P to browse files using FZF
+nnoremap <C-p> :Files<Cr>
+
+" Ctrl+G to find content in files
+nnoremap <C-g> :Rg<Cr>
+
 " Set up ctags
 set tags=./tags,tags;
-
-
 
 "-----------------------------------------------------------------------------
 " Settings START
@@ -58,7 +65,6 @@ autocmd BufWritePre * :%s/\s\+$//e
 """"""""""""""""""""""""""""""""""
 " auto-format on save
 let g:rustfmt_autosave = 1
-
 
 """"""""""""""""""""""""""""""""""
 " General
