@@ -65,3 +65,7 @@ export LESS=eFRX
 bindkey "^A" vi-beginning-of-line
 bindkey "^E" vi-end-of-line
 
+
+# FZF: Use Ripgrep by default
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+
