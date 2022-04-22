@@ -1,7 +1,6 @@
 #!/bin/bash
 
-sudo apt install chrome -y
+# Set default terminal: Kitty
+gsettings set org.gnome.desktop.default-applications.terminal exec $(which kitty)
+gsettings set org.gnome.desktop.default-applications.terminal exec-arg "-x"
 
-dconf write /org/gnome/desktop/interface/gtk-theme 1 # Yaru
-
-dconf write /org/gnome/shell/extensions/dash-to-dock/dock-fixed  # Hide Dock
