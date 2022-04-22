@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export DOTFILES_DIR="$HOME/dotfiles"
+export DOTFILES_DIR="$HOME/.dotfiles"
 
 export LOCAL_BIN="$HOME/.local/bin"
 export BACKUPS_DIR="$HOME/backups"

@@ -3,7 +3,7 @@ set -eu
 
 printf "Begin Bootstrapping...\n"
 
-export DOTFILES_DIR="$HOME/dotfiles"
+export DOTFILES_DIR="$HOME/.dotfiles"
 export PATHS="$DOTFILES_DIR/zsh/paths"
 
 [[ ! -f "$PATHS" ]] && printf "error: cannot find PATHS file!\n" && exit 1
@@ -24,14 +24,12 @@ export PATHS="$DOTFILES_DIR/zsh/paths"
 [[ ! -d "$HOME/.cargo" ]] && mkdir -p "$HOME/.cargo"
 [[ ! -f "$HOME/.cargo/env" ]] && touch "$HOME/.cargo/env"
 
-# Create symlinks to config files and binaries
-"$DOTFILES_DIR/install/create-symlinks.sh" && \
 # Install required packages and programs
 "$DOTFILES_DIR/install/install-packages.sh"
 
 #==============
 # Set zsh as the default shell
 #==============
-sudo chsh -s /bin/zsh
+chsh -s $(which zsh)
 
 printf "\nFinished Bootstrapping!\n\n"

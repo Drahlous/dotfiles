@@ -2,9 +2,6 @@
 
 set -u
 
-export DOTFILES_DIR="$HOME/dotfiles"
-export PATHS="$DOTFILES_DIR/zsh/paths"
-
 [[ ! -f "$PATHS" ]] && printf "error: cannot find PATHS file!\n" && exit 1
 
 # Source Paths
@@ -31,6 +28,8 @@ sudo apt-get install -y curl &> "$LOGFILE"
 sudo apt-get install -y lsb-release &> "$LOGFILE"
 sudo apt-get install -y lua5.3 &> "$LOGFILE"
 sudo apt-get install -y snapd &> "$LOGFILE"
+
+ln -sTfv "$PATHS" "$HOME/.paths"
 
 printf "Installing Node...\n"
 # Node
@@ -77,8 +76,8 @@ sudo apt-get install -y python3 &> "$LOGFILE"
 sudo apt-get install -y python3-pip &> "$LOGFILE"
 
 # Matplotlib
-sudo apt-get install -y python3-matplotlib &> "$LOGFILE"
-sudo apt-get install -y python3-gi-cairo &> "$LOGFILE"
+#sudo apt-get install -y python3-matplotlib &> "$LOGFILE"
+#sudo apt-get install -y python3-gi-cairo &> "$LOGFILE"
 
 #==============
 # Shell Environment
@@ -91,8 +90,14 @@ sudo apt-get install -y zsh-syntax-highlighting &> "$LOGFILE"
 
 # oh-my-zsh
 if [[ ! -d "$ZSH" ]]; then
-    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" &> "$LOGFILE"
+    echo "n" | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" &> "$LOGFILE"
 fi
+
+# zsh
+ln -sTfv "$DOTFILES_DIR/zsh/zshrc" 	"$HOME/.zshrc"
+ln -sTfv "$DOTFILES_DIR/zsh/zsh_prompt" "$HOME/.zsh_prompt"
+ln -sTfv "$DOTFILES_DIR/zsh/aliases" 	"$HOME/.aliases"
+
 
 printf "Installing Fonts...\n"
 # Nerd Fonts
@@ -102,13 +107,17 @@ mkfontscale &> "$LOGFILE"
 mkfontdir &> "$LOGFILE"
 fc-cache -f -v &> "$LOGFILE"
 
-
 #==============
 # CLI Tools
 #==============
+
 printf "Installing CLI Tools...\n"
+
 # Terminal Multiplexer
 sudo apt-get install -y tmux &> "$LOGFILE"
+ln -sTfv "$DOTFILES_DIR/linux-tmux" 			"$HOME/.tmux"
+ln -sTfv "$DOTFILES_DIR/linux-tmux/tmux.conf" 		"$HOME/.tmux.conf"
+ln -sTfv "$DOTFILES_DIR/linux-tmux/tmux.conf.local" 	"$HOME/.tmux.conf.local"
 
 # Silver Searcher (grep replacement)
 sudo apt-get install -y silversearcher-ag &> "$LOGFILE"
@@ -129,15 +138,19 @@ sudo apt-get install -y fzf &> "$LOGFILE"
 #==============
 # Editors & File Viewers
 #==============
-printf "Installing Neovim...\n"
-# Neovim
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage &> "$LOGFILE"
-chmod u+x nvim.appimage &> "$LOGFILE"
-mv nvim.appimage ~/.local/bin/nvim &> "$LOGFILE"
+
+# vim
+ln -sTfv "$DOTFILES_DIR/vim" "$HOME/.vim"
 
 # Vim Plug
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim' &> "$LOGFILE"
+
+# Neovim
+printf "Installing Neovim...\n"
+sudo snap install --edge nvim --classic
+ln -sTfv "$DOTFILES_DIR/config/nvim" "$XDG_CONFIG_HOME/nvim"
+nvim --headless +PlugInstall +qall
 
 # Pyright Language Server
 sudo npm i -g pyright &> "$LOGFILE"
@@ -149,9 +162,6 @@ sudo npm i -g bash-language-server &> "$LOGFILE"
 sudo apt-get install -y clangd-12 &> "$LOGFILE"
 sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-12 100 &> "$LOGFILE"
 
-# Build Ear
-sudo apt-get install -y bear &> "$LOGFILE"
-
 # Rust Analyzer
 curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz | gunzip -c - > "$LOCAL_BIN/rust-analyzer" &> "$LOGFILE"
 chmod +x "$LOCAL_BIN/rust-analyzer" &> "$LOGFILE"
@@ -161,11 +171,30 @@ sudo apt-get install -y exuberant-ctags &> "$LOGFILE"
 
 printf "Installing Utils...\n"
 
-# Doxygen
-sudo apt-get install -y doxygen &> "$LOGFILE"
-
 # Shellcheck
 sudo apt-get install -y shellcheck &> "$LOGFILE"
+
+#=============
+# Configuration Files
+#=============
+
+# bash
+ln -sTfv "$DOTFILES_DIR/bashrc" "$HOME/.bashrc"
+
+# Xresources
+ln -sTfv "$DOTFILES_DIR/Xresources" "$HOME/.Xresources"
+
+# kitty
+sudo apt-get install -y kitty &> "$LOGFILE"
+ln -sTfv "$DOTFILES_DIR/config/kitty" "$XDG_CONFIG_HOME/kitty"
+
+
+#==============
+# Application Binaries
+#==============
+
+# fuz (Note-taking)
+ln -sTfv "$DOTFILES_DIR/scripts/fuz.sh" "$LOCAL_BIN/fuz"
 
 #==============
 # Cleanup and provide a summary of what has been installed
@@ -174,3 +203,4 @@ printf "\n====== Cleaning up ======\n"
 sudo apt-get -y autoremove &> "$LOGFILE"
 printf "\nFinished Installing Packages!\n\n"
 rm "$LOGFILE"
+
