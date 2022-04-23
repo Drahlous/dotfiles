@@ -28,6 +28,7 @@ sudo apt-get install -y curl &> "$LOGFILE"
 sudo apt-get install -y lsb-release &> "$LOGFILE"
 sudo apt-get install -y lua5.3 &> "$LOGFILE"
 sudo apt-get install -y snapd &> "$LOGFILE"
+sudo apt-get install -y cmake &> "$LOGFILE"
 
 ln -sTfv "$PATHS" "$HOME/.paths"
 
