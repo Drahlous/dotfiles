@@ -65,13 +65,11 @@ export LESS=eFRX
 bindkey "^A" vi-beginning-of-line
 bindkey "^E" vi-end-of-line
 
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# Configre JVM for more memory for static analysis (Joern)
-N=8
-export _JAVA_OPTS="-Xmx${N}G"
+#export NVM_DIR="$HOME/.config/nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # FZF: Use Ripgrep by default
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+
