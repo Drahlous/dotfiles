@@ -188,6 +188,8 @@ ln -sTfv "$DOTFILES_DIR/Xresources" "$HOME/.Xresources"
 sudo apt-get install -y kitty &> "$LOGFILE"
 ln -sTfv "$DOTFILES_DIR/config/kitty" "$XDG_CONFIG_HOME/kitty"
 
+# VSCode
+ln -sTfv "$DOTFILES_DIR/config/Code/User/settings.json" "$XDG_CONFIG_HOME/Code/User/settings.json"
 
 #==============
 # Application Binaries
