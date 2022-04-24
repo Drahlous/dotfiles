@@ -153,6 +153,10 @@ sudo snap install --edge nvim --classic
 ln -sTfv "$DOTFILES_DIR/config/nvim" "$XDG_CONFIG_HOME/nvim"
 nvim --headless +PlugInstall +qall
 
+# Nvim python and clipboard
+sudo apt install -y xsel &> "$LOGFILE"
+pip install pynvim
+
 # Pyright Language Server
 sudo npm i -g pyright &> "$LOGFILE"
 
