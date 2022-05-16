@@ -21,9 +21,13 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 
+" Debug Adapter
+Plug 'mfussenegger/nvim-dap'
+
 " Rust
 Plug 'rust-lang/rust.vim'
 Plug 'simrat39/rust-tools.nvim'
+
 
 call plug#end()
 " Plugins END
