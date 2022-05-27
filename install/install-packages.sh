@@ -31,8 +31,6 @@ sudo apt-get install -y lua5.3 &> "$LOGFILE"
 sudo apt-get install -y snapd &> "$LOGFILE"
 sudo apt-get install -y cmake &> "$LOGFILE"
 
-ln -sTfv "$PATHS" "$HOME/.paths"
-
 printf "Installing Node...\n"
 # Node
 sudo apt install -y nodejs npm &> "$LOGFILE"

@@ -4,7 +4,7 @@ set -eu
 printf "Begin Bootstrapping...\n"
 
 export DOTFILES_DIR="$HOME/.dotfiles"
-export PATHS="$DOTFILES_DIR/zsh/paths"
+export PATHS="$DOTFILES_DIR/zsh/.paths"
 
 [[ ! -f "$PATHS" ]] && printf "error: cannot find PATHS file!\n" && exit 1
 
@@ -33,6 +33,6 @@ stow linux-tmux
 #==============
 # Set zsh as the default shell
 #==============
-chsh -s $(which zsh)
+chsh -s "$(which zsh)"
 
 printf "\nFinished Bootstrapping!\n\n"
