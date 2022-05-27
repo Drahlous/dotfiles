@@ -27,6 +27,9 @@ export PATHS="$DOTFILES_DIR/zsh/paths"
 # Install required packages and programs
 "$DOTFILES_DIR/install/install-packages.sh"
 
+stow zsh
+stow linux-tmux
+
 #==============
 # Set zsh as the default shell
 #==============

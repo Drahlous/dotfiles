@@ -12,6 +12,7 @@ set -u
 #==============
 printf "Begin Installing Packages...\n"
 sudo apt-get update &>/dev/null
+sudo apt-get install stow &>/dev/null
 
 touch "$HOME/install_progress_log.txt"
 LOGFILE="$HOME/install_progress_log.txt"
@@ -94,11 +95,6 @@ if [[ ! -d "$ZSH" ]]; then
     echo "n" | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" &> "$LOGFILE"
 fi
 
-# zsh
-ln -sTfv "$DOTFILES_DIR/zsh/zshrc" 	"$HOME/.zshrc"
-ln -sTfv "$DOTFILES_DIR/zsh/zsh_prompt" "$HOME/.zsh_prompt"
-ln -sTfv "$DOTFILES_DIR/zsh/aliases" 	"$HOME/.aliases"
-
 
 printf "Installing Fonts...\n"
 # Nerd Fonts
@@ -116,9 +112,6 @@ printf "Installing CLI Tools...\n"
 
 # Terminal Multiplexer
 sudo apt-get install -y tmux &> "$LOGFILE"
-ln -sTfv "$DOTFILES_DIR/linux-tmux" 			"$HOME/.tmux"
-ln -sTfv "$DOTFILES_DIR/linux-tmux/tmux.conf" 		"$HOME/.tmux.conf"
-ln -sTfv "$DOTFILES_DIR/linux-tmux/tmux.conf.local" 	"$HOME/.tmux.conf.local"
 
 # Silver Searcher (grep replacement)
 sudo apt-get install -y silversearcher-ag &> "$LOGFILE"
