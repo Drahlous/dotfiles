@@ -75,7 +75,7 @@ export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{n
 
 export IS_WSL=$(uname -r | sed -E 's/.*-WSL(2)?/WSL/g')
 
-if [ "${IS_WSL}" != "" ]; then
+if [[ "${IS_WSL}" =~ "WSL" ]]; then
     export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
 fi
 
