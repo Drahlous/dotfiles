@@ -79,3 +79,4 @@ if [[ "${IS_WSL}" =~ "WSL" ]]; then
     export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
 fi
 
+export PATH=$PATH:/usr/local/go/bin
