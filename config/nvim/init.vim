@@ -30,6 +30,10 @@ Plug 'numToStr/Comment.nvim'
 " Diff
 Plug 'sindrets/diffview.nvim'
 
+" Status Line
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+
 " Language Server
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
