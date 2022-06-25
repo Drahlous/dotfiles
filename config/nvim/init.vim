@@ -10,6 +10,7 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " Dracula Theme
 Plug 'dracula/vim', { 'as': 'dracula' }
