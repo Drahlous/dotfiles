@@ -32,7 +32,6 @@ Plug 'sindrets/diffview.nvim'
 
 " Status Line
 Plug 'nvim-lualine/lualine.nvim'
-Plug 'kyazdani42/nvim-web-devicons'
 Plug 'arkav/lualine-lsp-progress'
 
 " Language Server

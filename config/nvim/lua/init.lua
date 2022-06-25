@@ -10,5 +10,4 @@ require'aerial'.setup({})
 require'diffview'.setup()
 require'tmux'.setup()
 require'telescope'.setup()
-require'nvim-web-devicons'.setup()
 
