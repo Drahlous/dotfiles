@@ -1,4 +1,5 @@
 -- Load Lua Configs
+require'nvim-web-devicons'.setup()
 require'rust-tools-config'
 require'lsp-config'
 require'cmp-config'

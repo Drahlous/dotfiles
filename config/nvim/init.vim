@@ -4,6 +4,9 @@ set runtimepath^=~/.vim runtimepath+=~/.vim/after
 " Plugins START
 call plug#begin("~/.vim/plugged")
 
+" File Icons
+Plug 'kyazdani42/nvim-web-devicons'
+
 " FZF
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
