@@ -5,6 +5,7 @@ require'cmp-config'
 require'vscode-cpptools'
 require'treesitter-config'
 require'lualine-config'
+require'nvim-tree-config'
 require'Comment'.setup()
 require'aerial'.setup({})
 require'diffview'.setup()

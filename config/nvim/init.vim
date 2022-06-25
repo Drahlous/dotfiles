@@ -34,6 +34,9 @@ Plug 'sindrets/diffview.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'arkav/lualine-lsp-progress'
 
+" File Tree
+Plug 'kyazdani42/nvim-tree.lua'
+
 " Language Server
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
