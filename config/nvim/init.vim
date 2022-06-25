@@ -17,6 +17,9 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 " Tree Sitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+" Tmux Integrations
+Plug 'aserowy/tmux.nvim'
+
 " Aerial
 Plug 'stevearc/aerial.nvim'
 

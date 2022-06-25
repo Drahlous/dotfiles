@@ -7,3 +7,4 @@ require'treesitter'
 require'Comment'.setup()
 require'aerial'.setup({})
 require'diffview'.setup()
+require'tmux'.setup()
