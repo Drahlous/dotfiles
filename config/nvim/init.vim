@@ -9,11 +9,22 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'nvim-lua/plenary.nvim'
 
 " Dracula Theme
 Plug 'dracula/vim', { 'as': 'dracula' }
 
+" Tree Sitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+" Aerial
+Plug 'stevearc/aerial.nvim'
+
+" Comment
+Plug 'numToStr/Comment.nvim'
+
+" Diff
+Plug 'sindrets/diffview.nvim'
 
 " Language Server
 Plug 'neovim/nvim-lspconfig'
@@ -30,7 +41,6 @@ Plug 'mfussenegger/nvim-dap'
 Plug 'rust-lang/rust.vim'
 Plug 'simrat39/rust-tools.nvim'
 
-
 call plug#end()
 " Plugins END
 "-----------------------------------------------------------------------------
@@ -42,8 +52,6 @@ lua require('init')
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-n>" : "\<S-Tab>"
 
-
-" FZF :h fzf-vim-commands
 
 " Ctrl+P to browse files using FZF
 nnoremap <C-p> :Files<Cr>

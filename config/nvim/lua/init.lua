@@ -4,4 +4,6 @@ require'lsp-config'
 require'cmp-config'
 require'vscode-cpptools'
 require'treesitter'
-
+require'Comment'.setup()
+require'aerial'.setup({})
+require'diffview'.setup()
