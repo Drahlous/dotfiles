@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export DOTFILES_DIR="$HOME/.dotfiles"
+export DOTFILES_DIR="$HOME/dotfiles"
 
 export MY_INSTALL_DIR="$HOME/.local"
 export LOCAL_BIN="$HOME/.local/bin"

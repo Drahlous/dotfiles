@@ -3,7 +3,7 @@ set -eu
 
 printf "Begin Bootstrapping...\n"
 
-export DOTFILES_DIR="$HOME/.dotfiles"
+export DOTFILES_DIR="$HOME/dotfiles"
 export PATHS="$DOTFILES_DIR/zsh/.paths"
 
 [[ ! -f "$PATHS" ]] && printf "error: cannot find PATHS file!\n" && exit 1

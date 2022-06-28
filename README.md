@@ -11,8 +11,6 @@ cd ~/dotfiles
 # Start Docker on WSL2
 `sudo dockerd`
 
-## Discord Webhook Test 3
-
 ## Tmux
 ```
 C_a     Prefix
@@ -40,28 +38,4 @@ C_c     Create new session
 $       Rename session
 
 ```
-
-## In Progress
-
-
-### Editor Customizations
-
-#### Neovim LSP integrations
-- Autocomplete
-
-#### LLVM/Clangd
-- Clangd LSP
-
-- Clangd Static Indexing
-
-- Clangd Remote Indexing Server
-
-#### Tree Sitter
-- Rust
-- Lua
-- C
-- Python
-- Bash
-
-
 

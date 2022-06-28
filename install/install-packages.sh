@@ -37,21 +37,6 @@ sudo apt install -y nodejs npm &> "$LOGFILE"
 sudo npm install -y -g n &> "$LOGFILE"
 sudo n latest &> "$LOGFILE"
 
-printf "Installing Docker...\n"
-# Docker
-sudo apt-get remove docker docker-engine docker.io containerd runc &> "$LOGFILE"
-[[ ! -f "/usr/share/keyrings/docker-archive-keyring.gpg" ]] &&  \
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg |   \
-    sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg &> "$LOGFILE"
-echo \
-  "deb [arch=$(dpkg --print-architecture) \
-  signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] \
-  https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-
-sudo apt-get update &> "$LOGFILE"
-sudo apt-get install -y docker-ce docker-ce-cli containerd.io &> "$LOGFILE"
-
 printf "Installing C++ Essentials...\n"
 #==============
 # C++ essentials
@@ -181,6 +166,7 @@ sudo apt-get install -y kitty &> "$LOGFILE"
 ln -sTfv "$DOTFILES_DIR/config/kitty" "$XDG_CONFIG_HOME/kitty"
 
 # VSCode
+mkdir -p "$XDG_CONFIG_HOME"/Code/User/
 ln -sTfv "$DOTFILES_DIR/config/Code/User/settings.json" "$XDG_CONFIG_HOME/Code/User/settings.json"
 
 #==============
