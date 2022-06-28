@@ -33,6 +33,6 @@ stow linux-tmux
 #==============
 # Set zsh as the default shell
 #==============
-chsh -s "$(which zsh)"
+chsh -s "$(command -v zsh)"
 
 printf "\nFinished Bootstrapping!\n\n"
