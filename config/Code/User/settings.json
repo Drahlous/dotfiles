@@ -1,4 +1,6 @@
 {
     "workbench.colorTheme": "Dracula",
-    "workbench.iconTheme": "material-icon-theme"
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.fontFamily": "Hack,'Droid Sans Mono', 'monospace', monospace",
+    "window.titleBarStyle": "custom"
 }
