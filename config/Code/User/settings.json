@@ -2,5 +2,10 @@
     "workbench.colorTheme": "Dracula",
     "workbench.iconTheme": "material-icon-theme",
     "editor.fontFamily": "Hack,'Droid Sans Mono', 'monospace', monospace",
-    "window.titleBarStyle": "custom"
+    "window.titleBarStyle": "custom",
+
+    "files.trimTrailingWhitespace": true,
+    "editor.tabSize": 4,
+    "editor.suggestSelection": "first",
+
 }
