@@ -59,22 +59,43 @@ call plug#end()
 " Load lua config
 lua require('init')
 
-" Use <Tab> and <S-Tab> to navigate through popup menu
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-n>" : "\<S-Tab>"
-
+" Map Leader to space
+nnoremap <SPACE> <Nop>
+let mapleader = " "
+let g:mapleader = " "
 
 " Ctrl+P to browse files using FZF
-nnoremap <C-p> :Files<Cr>
+nnoremap <C-p> :Telescope find_files<Cr>
 
 " Ctrl+G to find content in files
 nnoremap <C-g> :Rg<Cr>
 
-" Set up ctags
-set tags=./tags,tags;
+" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-n>" : "\<S-Tab>"
+
+" Tabs
+map <leader>l :tabnext<cr>
+map <leader>h :tabprevious<cr>
+
+" Open a new tab with the current buffer's path
+" Good for editing files in the same directory
+map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+
+" Switch CWD to the directory of the open buffer
+map <leader> cd :cd %:p:h<cr>:pwd<cr>
+
+" Copy to clipboard in visual mode
+vmap <LeftRelease> "*ygv
+
+" Disable highlight when <leader><cr> is pressed
+map <silent> <leader><cr> :noh<cr>
 
 "-----------------------------------------------------------------------------
 " Settings START
+
+" Set up ctags
+set tags=./tags,tags;
 
 " auto-format
 autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
@@ -127,42 +148,15 @@ filetype indent on
 
 " Set to auto read when a file is changed from the outside
 set autoread
-
 set ttyfast
 
 " Enable mouse in normal & visual modes
 " Allows for dragging of split-views
 set mouse=nv
 
-" Copy to clipboard in visual mode
-vmap <LeftRelease> "*ygv
-
-" Map leader allows for more combinations
-nnoremap <SPACE> <Nop>
-let mapleader = " "
-let g:mapleader = " "
-
-" Disable highlight when <leader><cr> is pressed
-map <silent> <leader><cr> :noh<cr>
-
 """"""""""""""""""""""""""""""""""
 " Navigating tabs, windows, buffers
 """"""""""""""""""""""""""""""""""
-
-" Tabs
-map <leader>l :tabnext<cr>
-map <leader>h :tabprevious<cr>
-
-" Buffers
-"map <leader>bn :bnext<cr>
-"map <leader>bp :bprevious<cr>
-
-" Open a new tab with the current buffer's path
-" Good for editing files in the same directory
-map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
-
-" Switch CWD to the directory of the open buffer
-map <leader> cd :cd %:p:h<cr>:pwd<cr>
 
 " Specify behavior for switching between buffers
 try
@@ -170,9 +164,6 @@ try
     set stal=2
 catch
 endtry
-
-" Return to the last edit position when opening files
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 """"""""""""""""""""""""""""""""""""""""
 " Vim user interface
@@ -222,6 +213,8 @@ set t_vb=
 """"""""""""""""""""""""""""""""""""""""
 syntax enable	" Enable syntax hl
 
+set background=dark
+
 " Set fonts according to system
 "	windows
 "	set guifont=Bitstream\ Vera\ Sans\ Mono:h10
@@ -250,24 +243,10 @@ if (empty($TMUX))
   endif
 endif
 
-set background=dark
-
-" Set extra options for GUI mode
-if has ("gui_running")
-    set guioptions-=T
-    set guioptions-=m
-    set guioptions-=e
-    set guioptions+=c " Console Dialogues
-    set guitablabel=%M\ %t
-endif
-
-" set encoding=utf8
-" try lang en_US catch endtry
-
 """"""""""""""""""""""""""""""""""""""""
 " Files, backups
 """"""""""""""""""""""""""""""""""""""""
-set ffs=unix,dos,mac	" Default file types
+set ffs=unix,dos,mac " Default file types
 
 " set backup
 " set backupdir=~/vim_backup
