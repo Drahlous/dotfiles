@@ -27,9 +27,6 @@ Plug 'stevearc/aerial.nvim'
 " Comment
 Plug 'numToStr/Comment.nvim'
 
-" Diff
-Plug 'sindrets/diffview.nvim'
-
 " Status Line
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'arkav/lualine-lsp-progress'

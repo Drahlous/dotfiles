@@ -24,11 +24,12 @@ export PATHS="$DOTFILES_DIR/zsh/.paths"
 [[ ! -d "$HOME/.cargo" ]] && mkdir -p "$HOME/.cargo"
 [[ ! -f "$HOME/.cargo/env" ]] && touch "$HOME/.cargo/env"
 
-# Install required packages and programs
-"$DOTFILES_DIR/install/install-packages.sh"
-
+# Create Symlinks
 stow zsh
 stow linux-tmux
+
+# Install required packages and programs
+"$DOTFILES_DIR/install/install-packages.sh"
 
 #==============
 # Set zsh as the default shell
