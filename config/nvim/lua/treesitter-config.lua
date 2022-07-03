@@ -11,7 +11,6 @@ require'nvim-treesitter.configs'.setup {
         "rust",
         "toml",
         "vim",
-        "yaml"
     },
 
     highlight = {
