@@ -155,9 +155,6 @@ sudo apt-get install -y shellcheck &> "$LOGFILE"
 # bash
 ln -sTfv "$DOTFILES_DIR/bashrc" "$HOME/.bashrc"
 
-# Xresources
-ln -sTfv "$DOTFILES_DIR/Xresources" "$HOME/.Xresources"
-
 # kitty
 sudo apt-get install -y kitty &> "$LOGFILE"
 ln -sTfv "$DOTFILES_DIR/config/kitty" "$XDG_CONFIG_HOME/kitty"
