@@ -1,4 +1,7 @@
 #!/bin/bash
+# shellcheck disable=1090
+# shellcheck disable=2024
+
 
 set -u
 
@@ -83,6 +86,10 @@ sudo apt install -y tmux &> "$LOGFILE"
 
 # Ripgrep (grep replacement)
 sudo apt install -y ripgrep &> "$LOGFILE"
+
+# FD Finder
+sudo apt install -y fd-find
+ln -s "$(command -v fdfind)" ~/.local/bin/fd
 
 # Fuzzy Finder
 sudo apt install -y fzf &> "$LOGFILE"

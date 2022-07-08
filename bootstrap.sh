@@ -1,4 +1,5 @@
 #!/bin/bash
+# shellcheck disable=1090
 set -eu
 
 printf "Begin Bootstrapping...\n"
