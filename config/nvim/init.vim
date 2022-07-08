@@ -68,6 +68,11 @@ nnoremap <C-g> <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>ft <cmd>Telescope tags<cr>
+nnoremap <leader>fm <cmd>Telescope marks<cr>
+
+
+" LSP
+nnoremap <leader>fr <cmd>Telescope lsp-references<cr>
 
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
