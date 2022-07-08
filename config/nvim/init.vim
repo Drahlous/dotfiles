@@ -61,11 +61,12 @@ nnoremap <SPACE> <Nop>
 let mapleader = " "
 let g:mapleader = " "
 
-" Ctrl+P to browse files using FZF
-nnoremap <C-p> :Telescope find_files<Cr>
-
-" Ctrl+G to find content in files
-nnoremap <C-g> :Rg<Cr>
+" Telescope
+" Ctrl+P to browse files using Telescope
+nnoremap <C-p> <cmd>Telescope find_files<Cr>
+nnoremap <C-g> <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " Use <Tab> and <S-Tab> to navigate through popup menu
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"

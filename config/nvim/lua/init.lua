@@ -6,8 +6,8 @@ require'vscode-cpptools'
 require'treesitter-config'
 require'lualine-config'
 require'nvim-tree-config'
+require'telescope-config'
 require'Comment'.setup()
 require'aerial'.setup({})
 require'tmux'.setup()
-require'telescope'.setup()
 
