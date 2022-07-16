@@ -37,10 +37,19 @@ local lsp_flags = {
   debounce_text_changes = 150,
 }
 
+-- CPP
+require('lspconfig')['clangd'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
+
+-- Python
 require('lspconfig')['pyright'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
 }
+
+-- Rust
 require('lspconfig')['rust_analyzer'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
@@ -49,11 +58,14 @@ require('lspconfig')['rust_analyzer'].setup{
       ["rust-analyzer"] = {}
     }
 }
+
+-- Bash
 require('lspconfig')['bashls'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
 }
-require('lspconfig')['clangd'].setup{
+
+require('lspconfig')['gopls'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
 }

@@ -7,5 +7,10 @@
     "files.trimTrailingWhitespace": true,
     "editor.tabSize": 4,
     "editor.suggestSelection": "first",
+    "remote.SSH.defaultExtensions": [
+        "gitpod.gitpod-remote-ssh"
+    ],
+    "remote.SSH.configFile": "/tmp/gitpod_ssh_config-207839-b0GWXM7L3yoT",
+    "go.toolsManagement.autoUpdate": true,
 
 }
