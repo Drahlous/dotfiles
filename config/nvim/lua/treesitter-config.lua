@@ -5,11 +5,9 @@ require'nvim-treesitter.configs'.setup {
         "dockerfile",
         "dot",
         "go",
-        "json",
         "lua",
         "make",
         "rust",
-        "toml",
         "vim",
     },
 
