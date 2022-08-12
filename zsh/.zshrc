@@ -82,3 +82,7 @@ fi
 export PATH=$PATH:${HOME}/.cargo/bin
 
 export PATH=$PATH:${HOME}/go/bin
+
+# Enable Vagrant on WSL
+export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
+
