@@ -14,6 +14,17 @@ alias -s md=mdless
 # Plantuml
 alias plant='java -jar ~/bin/plantuml.jar'
 
-alias lsl='ls -Al'
-alias lls='ls -Al'
-alias lsa='ls -A'
+# Lazy ls -lA aliases
+alias lsl='ls -lA'
+alias lls='ls -lA'
+alias lsa='ls -lA'
+alias sla='ls -lA'
+alias sls='ls -lA'
+alias las='ls -lA'
+alias lsls='ls -lA'
+alias lsla='ls -lA'
+alias lala='ls -lA'
+alias lals='ls -lA'
+alias lsal='ls -lA'
+alias lasl='ls -lA'
+
