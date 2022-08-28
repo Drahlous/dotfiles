@@ -15,4 +15,5 @@ alias -s md=mdless
 alias plant='java -jar ~/bin/plantuml.jar'
 
 alias lsl='ls -Al'
+alias lls='ls -Al'
 alias lsa='ls -A'
