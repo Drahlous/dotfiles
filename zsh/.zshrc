@@ -73,12 +73,6 @@ bindkey "^E" vi-end-of-line
 # FZF: Use Ripgrep by default
 export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{node_modules/*,.git/*,*.pdf,*.o,.cache/*,.vscode/*}"'
 
-export IS_WSL=$(uname -r | sed -E 's/.*-WSL(2)?/WSL/g')
-
-if [[ "${IS_WSL}" =~ "WSL" ]]; then
-    export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
-fi
-
 export PATH=$PATH:${HOME}/.cargo/bin
 
 export PATH=$PATH:${HOME}/go/bin
