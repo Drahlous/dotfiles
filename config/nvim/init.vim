@@ -15,9 +15,6 @@ Plug 'nvim-telescope/telescope.nvim'
 " Dracula Theme
 Plug 'dracula/vim', { 'as': 'dracula' }
 
-" Tree Sitter
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
 " Tmux Integrations
 Plug 'aserowy/tmux.nvim'
 
@@ -44,10 +41,6 @@ Plug 'hrsh7th/nvim-cmp'
 
 " Debug Adapter
 Plug 'mfussenegger/nvim-dap'
-
-" Rust
-Plug 'rust-lang/rust.vim'
-Plug 'simrat39/rust-tools.nvim'
 
 call plug#end()
 " Plugins END
