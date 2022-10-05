@@ -97,8 +97,6 @@ set tags=./tags,tags;
 " auto-format
 autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
 autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 100)
-autocmd BufWritePre *.py.in lua vim.lsp.buf.formatting_sync(nil, 100)
 
 " Delete trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
