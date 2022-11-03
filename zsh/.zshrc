@@ -76,6 +76,7 @@ export FZF_DEFAULT_COMMAND='rg --files --follow --no-ignore-vcs --hidden -g "!{n
 export PATH=$PATH:${HOME}/.cargo/bin
 
 export PATH=$PATH:${HOME}/go/bin
+export PATH=$PATH:/usr/local/go/bin
 
 # Enable Vagrant on WSL
 export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
