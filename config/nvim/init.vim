@@ -42,6 +42,9 @@ Plug 'hrsh7th/nvim-cmp'
 " Debug Adapter
 Plug 'mfussenegger/nvim-dap'
 
+" Go
+Plug 'fatih/vim-go'
+
 call plug#end()
 " Plugins END
 "-----------------------------------------------------------------------------
