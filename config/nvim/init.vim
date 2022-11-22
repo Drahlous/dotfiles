@@ -45,6 +45,9 @@ Plug 'mfussenegger/nvim-dap'
 " Go
 Plug 'fatih/vim-go'
 
+" Godot
+Plug 'habamax/vim-godot'
+
 call plug#end()
 " Plugins END
 "-----------------------------------------------------------------------------
