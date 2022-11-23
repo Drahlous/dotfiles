@@ -25,6 +25,9 @@ export PATHS="$DOTFILES_DIR/zsh/.paths"
 [[ ! -d "$HOME/.cargo" ]] && mkdir -p "$HOME/.cargo"
 [[ ! -f "$HOME/.cargo/env" ]] && touch "$HOME/.cargo/env"
 
+# Install GNU Stow to manage Symlinks
+sudo apt install stow
+
 # Create Symlinks
 stow zsh
 stow linux-tmux
