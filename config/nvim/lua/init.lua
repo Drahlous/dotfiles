@@ -1,6 +1,6 @@
 -- Load Lua Configs
 require'lsp-config'
-require'cmp-config'
+--require'cmp-config'
 require'vscode-cpptools'
 require'lualine-config'
 require'telescope-config'
