@@ -331,6 +331,9 @@ tmux_conf_copy_to_os_clipboard=true
 # -- user customizations -------------------------------------------------------
 # this is the place to override or undo settings
 
+# reduce repeat time, just press the prefix-key for each command
+set -sg repeat-time 5
+
 # increase history size
 set -g history-limit 10000
 
