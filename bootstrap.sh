@@ -30,6 +30,7 @@ sudo apt update
 sudo apt install stow
 
 # Create Symlinks
+[[ -f "$HOME/.zshrc" ]] && rm -i "$HOME/.zshrc"
 stow zsh
 stow linux-tmux
 
