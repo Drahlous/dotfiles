@@ -48,6 +48,9 @@ Plug 'fatih/vim-go'
 " Godot
 Plug 'habamax/vim-godot'
 
+" Wikilinks
+Plug 'mmai/wikilink'
+
 call plug#end()
 " Plugins END
 "-----------------------------------------------------------------------------
