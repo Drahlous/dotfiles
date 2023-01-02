@@ -26,6 +26,7 @@ export PATHS="$DOTFILES_DIR/zsh/.paths"
 [[ ! -f "$HOME/.cargo/env" ]] && touch "$HOME/.cargo/env"
 
 # Install GNU Stow to manage Symlinks
+sudo apt update
 sudo apt install stow
 
 # Create Symlinks
