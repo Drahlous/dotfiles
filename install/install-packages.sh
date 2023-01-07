@@ -104,10 +104,10 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 # Neovim
 printf "Installing Neovim...\n"
-sudo apt install software-properties-common -y &> "$LOGFILE"
-sudo add-apt-repository ppa:neovim-ppa/stable
-sudo apt update
-sudo apt install neovim -y &> "$LOGFILE"
+sudo apt install wget -y &> "$LOGFILE"
+wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb
+sudo apt install ./nvim-linux64.deb -y &> "$LOGFILE"
+rm nvim-linux64.deb
 ln -sTfv "$DOTFILES_DIR/config/nvim" "$XDG_CONFIG_HOME/nvim"
 nvim --headless +PlugInstall +qall
 
