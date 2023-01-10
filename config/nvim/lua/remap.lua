@@ -22,19 +22,15 @@ vim.keymap.set('n', '<leader>fr', '<cmd>Telescope lsp-references<cr>')
 --inoremap <expr> <S-Tab> pumvisible() ? "\<C-n>" : "\<S-Tab>"
 
 -- Tabs
---map <leader>l :tabnext<cr>
---map <leader>h :tabprevious<cr>
-
--- Open a new tab with the current buffer's path
--- Good for editing files in the same directory
---map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+vim.keymap.set('n', '<leader>l', ':tabnext<cr>')
+vim.keymap.set('n', '<leader>h', ':tabprevious<cr>')
 
 -- Switch CWD to the directory of the open buffer
---map <leader> cd :cd %:p:h<cr>:pwd<cr>
+vim.keymap.set('n', '<leader>cd', ':cd %:p:h<cr>:pwd<cr>')
 
 -- Copy to clipboard in visual mode
---vmap <LeftRelease> "*ygv
+vim.keymap.set('v', '<LeftRelease>', '"*ygv')
 
 -- Disable highlight when <leader><cr> is pressed
---map <silent> <leader><cr> :noh<cr>
+vim.keymap.set('n', '<leader><cr>', ':noh<cr>')
 
