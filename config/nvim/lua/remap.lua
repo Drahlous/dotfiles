@@ -1,23 +1,21 @@
 -- Key Remapping
 
 -- Use SPACE as the leader key
-vim.api.nvim_set_keymap("n", " ", '', {noremap=true, silent=true})
+vim.keymap.set('n', ' ', '')
 vim.g.mapleader = ' '
-vim.api.nvim_set_keymap("n", "<leader>pv", ':Explore<CR>', {noremap=true, silent=true})
-
+vim.keymap.set('n', '<leader>pv', ':Explore<CR>')
 
 -- Telescope
 -- Ctrl+P to browse files using Telescope
-vim.api.nvim_set_keymap("n", "<C-p>", "<cmd>Telescope find_files<Cr>", {noremap=true, silent=true})
-vim.api.nvim_set_keymap("n", "<C-g>", "<cmd>Telescope live_grep<cr>", {noremap=true, silent=true})
-vim.api.nvim_set_keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", {noremap=true, silent=true})
-vim.api.nvim_set_keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", {noremap=true, silent=true})
-vim.api.nvim_set_keymap("n", "<leader>ft", "<cmd>Telescope tags<cr>", {noremap=true, silent=true})
-vim.api.nvim_set_keymap("n", "<leader>fm", "<cmd>Telescope marks<cr>", {noremap=true, silent=true})
-
+vim.keymap.set('n', '<C-p>', '<cmd>Telescope find_files<Cr>')
+vim.keymap.set('n', '<C-g>', '<cmd>Telescope live_grep<cr>')
+vim.keymap.set('n', '<leader>fb', '<cmd>Telescope buffers<cr>')
+vim.keymap.set('n', '<leader>fh', '<cmd>Telescope help_tags<cr>')
+vim.keymap.set('n', '<leader>ft', '<cmd>Telescope tags<cr>')
+vim.keymap.set('n', '<leader>fm', '<cmd>Telescope marks<cr>')
 
 -- LSP
-vim.api.nvim_set_keymap("n", "<leader>fr", "<cmd>Telescope lsp-references<cr>", {noremap=true, silent=true})
+vim.keymap.set('n', '<leader>fr', '<cmd>Telescope lsp-references<cr>')
 
 -- Use <Tab> and <S-Tab> to navigate through popup menu
 --inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
