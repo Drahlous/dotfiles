@@ -1,4 +1,6 @@
--- Load Lua Configs
+-- Remap Keys
+require'remap'
+-- Plugin Configs
 require'lsp-config'
 --require'cmp-config'
 require'vscode-cpptools'

@@ -58,44 +58,6 @@ call plug#end()
 " Load lua config
 lua require('init')
 
-" Map Leader to space
-nnoremap <SPACE> <Nop>
-let mapleader = " "
-let g:mapleader = " "
-
-" Telescope
-" Ctrl+P to browse files using Telescope
-nnoremap <C-p> <cmd>Telescope find_files<Cr>
-nnoremap <C-g> <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-nnoremap <leader>ft <cmd>Telescope tags<cr>
-nnoremap <leader>fm <cmd>Telescope marks<cr>
-
-
-" LSP
-nnoremap <leader>fr <cmd>Telescope lsp-references<cr>
-
-" Use <Tab> and <S-Tab> to navigate through popup menu
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-n>" : "\<S-Tab>"
-
-" Tabs
-map <leader>l :tabnext<cr>
-map <leader>h :tabprevious<cr>
-
-" Open a new tab with the current buffer's path
-" Good for editing files in the same directory
-map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
-
-" Switch CWD to the directory of the open buffer
-map <leader> cd :cd %:p:h<cr>:pwd<cr>
-
-" Copy to clipboard in visual mode
-vmap <LeftRelease> "*ygv
-
-" Disable highlight when <leader><cr> is pressed
-map <silent> <leader><cr> :noh<cr>
 
 "-----------------------------------------------------------------------------
 " Settings START
