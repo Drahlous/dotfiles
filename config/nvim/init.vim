@@ -1,4 +1,4 @@
-set runtimepath^=~/.vim runtimepath+=~/.vim/after
+"set runtimepath^=~/.vim runtimepath+=~/.vim/after
 
 "-----------------------------------------------------------------------------
 " Plugins START
@@ -58,7 +58,6 @@ call plug#end()
 " Load lua config
 lua require('init')
 
-
 "-----------------------------------------------------------------------------
 " Settings START
 
@@ -80,9 +79,6 @@ let g:rustfmt_autosave = 1
 set nocompatible
 set number
 set relativenumber
-
-" Dracula Color Scheme
-colorscheme dracula
 
 " Set completeopt to have a better completion experience
 " :help completeopt

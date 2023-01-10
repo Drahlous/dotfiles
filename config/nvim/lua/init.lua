@@ -1,5 +1,3 @@
--- Remap Keys
-require'remap'
 -- Plugin Configs
 require'lsp-config'
 --require'cmp-config'
@@ -10,3 +8,8 @@ require'Comment'.setup()
 require'aerial'.setup({})
 require'tmux'.setup()
 
+-- Editor Settings
+require'editor'
+
+-- Remap Keys
+require'remap'
