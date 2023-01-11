@@ -1,3 +1,5 @@
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+
 "-----------------------------------------------------------------------------
 " Plugins START
 call plug#begin("~/.vim/plugged")
@@ -11,7 +13,11 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 
 " Dracula Theme
-Plug 'dracula/vim', { 'as': 'dracula' }
+"Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'Mofiqul/dracula.nvim'
+
+" Treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 " Tmux Integrations
 Plug 'aserowy/tmux.nvim'

@@ -1,5 +1,6 @@
 -- Plugin Configs
 require'lsp-config'
+require'treesitter'
 --require'cmp-config'
 require'vscode-cpptools'
 require'lualine-config'
@@ -9,6 +10,7 @@ require'aerial'.setup({})
 require'tmux'.setup()
 
 -- Editor Settings
+require'dracula-config'
 require'editor'
 
 -- Remap Keys
