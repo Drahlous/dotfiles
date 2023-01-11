@@ -83,10 +83,7 @@ vim.opt.magic = true        -- Set magic on, for regular expressions
 vim.opt.showmatch = true	-- Show matching bracets when text indicator is over them
 vim.opt.mat = 2             -- How many tenths of second to blink
 -- No sound on errors
---vim.opt.noerrorbells = true
---vim.opt.novisualbell = true
---vim.opt.t_vb = true
---vim.opt.timeoutlen = 500
+vim.opt.belloff = 'all'
 
 --
 -- Colors and Fonts

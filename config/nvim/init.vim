@@ -1,5 +1,3 @@
-"set runtimepath^=~/.vim runtimepath+=~/.vim/after
-
 "-----------------------------------------------------------------------------
 " Plugins START
 call plug#begin("~/.vim/plugged")
@@ -57,4 +55,3 @@ call plug#end()
 
 " Load lua config
 lua require('init')
-
