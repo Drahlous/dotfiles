@@ -93,6 +93,7 @@ vim.opt.mat = 2             -- How many tenths of second to blink
 --
 vim.opt.syntax = enable		-- Enable syntax highlighting
 vim.opt.background = 'dark'
+vim.opt.termguicolors = true
 
 ---
 --- Files, backups
