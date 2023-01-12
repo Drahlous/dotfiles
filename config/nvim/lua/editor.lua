@@ -30,7 +30,7 @@ vim.opt.shortmess:append('c')
 vim.opt.signcolumn = 'yes'
 
 -- Use System Clipboard
-vim.opt.clipboard = unnamedplus
+vim.opt.clipboard = 'unnamedplus'
 
 -- Sets how many lines of history Vim has to remember
 vim.opt.history = 500
