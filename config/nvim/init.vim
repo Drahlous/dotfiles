@@ -55,6 +55,9 @@ Plug 'habamax/vim-godot'
 " Wikilinks
 Plug 'mmai/wikilink'
 
+" Git
+Plug 'tpope/vim-fugitive'
+
 call plug#end()
 " Plugins END
 "-----------------------------------------------------------------------------

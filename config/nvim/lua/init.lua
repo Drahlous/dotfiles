@@ -15,4 +15,5 @@ require'editor'
 
 -- Remap Keys
 require'remap'
+require'vim-fugitive'
 
