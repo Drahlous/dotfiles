@@ -19,9 +19,6 @@ Plug 'Mofiqul/dracula.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
 
-" Tmux Integrations
-Plug 'aserowy/tmux.nvim'
-
 " Aerial
 Plug 'stevearc/aerial.nvim'
 
