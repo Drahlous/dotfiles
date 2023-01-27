@@ -16,6 +16,11 @@ vim.keymap.set('n', '<leader>fm', '<cmd>Telescope marks<cr>')
 
 -- LSP
 vim.keymap.set('n', '<leader>fr', '<cmd>Telescope lsp-references<cr>')
+local opts = { noremap=true, silent=true }
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
 
 -- Use <Tab> and <S-Tab> to navigate through popup menu
 --inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
