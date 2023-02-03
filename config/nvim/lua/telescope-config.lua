@@ -30,7 +30,17 @@ require('telescope').setup{
     -- Now the picker_config_key will be applied every time you call this
     -- builtin picker
     find_files = {
-      find_command = { "fd", "--type", "f", "--no-ignore" }
+      find_command = {
+        "fd", "--type", "f", "--no-ignore",
+        "--exclude", "*.o",
+        "--exclude", "*.o.c",
+        "--exclude", "*.a",
+        "--exclude", "*.i",
+        "--exclude", "*.cmake",
+        "--exclude", "*.make",
+        "--exclude", "**CMakeFiles**",
+        "--exclude", "compile_commands.json",
+      }
     },
   },
   extensions = {
