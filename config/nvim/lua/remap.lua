@@ -7,16 +7,18 @@ vim.keymap.set('n', '<leader>pv', ':Explore<CR>')
 
 -- Telescope
 -- Ctrl+P to browse files using Telescope
-vim.keymap.set('n', '<C-p>', '<cmd>Telescope find_files<Cr>')
-vim.keymap.set('n', '<C-g>', '<cmd>Telescope live_grep<cr>')
-vim.keymap.set('n', '<leader>fb', '<cmd>Telescope buffers<cr>')
-vim.keymap.set('n', '<leader>fh', '<cmd>Telescope help_tags<cr>')
-vim.keymap.set('n', '<leader>ft', '<cmd>Telescope tags<cr>')
-vim.keymap.set('n', '<leader>fm', '<cmd>Telescope marks<cr>')
+local opts = { noremap=true, silent=true }
+vim.keymap.set('n', '<C-p>', '<cmd>Telescope find_files<Cr>', opts)
+vim.keymap.set('n', '<C-g>', '<cmd>Telescope live_grep<cr>', opts)
+vim.keymap.set('n', '<leader>fb', '<cmd>Telescope buffers<cr>', opts)
+vim.keymap.set('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', opts)
+vim.keymap.set('n', '<leader>ft', '<cmd>Telescope tags<cr>', opts)
+vim.keymap.set('n', '<leader>fm', '<cmd>Telescope marks<cr>', opts)
+vim.keymap.set('n', '<leader>fe', '<cmd>Telescope diagnostics<cr>', opts)
 
 -- LSP
-vim.keymap.set('n', '<leader>fr', '<cmd>Telescope lsp_references<cr>')
-local opts = { noremap=true, silent=true }
+vim.keymap.set('n', '<leader>fr', '<cmd>Telescope lsp_references<cr>', opts)
+vim.keymap.set('n', '<leader>fs', '<cmd>Telescope lsp_document_symbols<cr>', opts)
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
