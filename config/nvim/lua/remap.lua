@@ -11,6 +11,7 @@ local opts = { noremap=true, silent=true }
 vim.keymap.set('n', '<C-p>', '<cmd>Telescope find_files<Cr>', opts)
 vim.keymap.set('n', '<C-g>', '<cmd>Telescope live_grep<cr>', opts)
 vim.keymap.set('n', '<leader>fp', '<cmd>Telescope find_files<Cr>', opts)
+vim.keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<cr>', opts)
 vim.keymap.set('n', '<leader>ff', '<cmd>Telescope current_buffer_fuzzy_find<cr>', opts)
 vim.keymap.set('n', '<leader>fb', '<cmd>Telescope buffers<cr>', opts)
 vim.keymap.set('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', opts)
