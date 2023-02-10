@@ -18,7 +18,9 @@ require('telescope').setup{
       "--line-number",
       "--column",
       "--smart-case",
-      "--no-ignore-vcs"
+      "--no-ignore-vcs",
+      "--glob", "!**CMakeFiles**",
+      "--glob", "!build/**",
     }
   },
   pickers = {
