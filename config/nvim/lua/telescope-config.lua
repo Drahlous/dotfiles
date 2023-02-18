@@ -41,6 +41,7 @@ require('telescope').setup{
         "--exclude", "*.cmake",
         "--exclude", "*.make",
         "--exclude", "**CMakeFiles**",
+        "--exclude", "build/**",
         "--exclude", "compile_commands.json",
       }
     },
