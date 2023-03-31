@@ -15,6 +15,7 @@ require('aerial').setup({})
 -- Editor Settings
 require('dracula-config')
 require('editor')
+require('filetype')
 
 -- Remap Keys
 require('remap')
