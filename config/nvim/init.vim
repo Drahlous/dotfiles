@@ -17,6 +17,7 @@ Plug 'Mofiqul/dracula.nvim'
 
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'nvim-treesitter/playground'
 
 " Aerial
@@ -65,6 +66,7 @@ Plug 'mmai/wikilink'
 
 " Git
 Plug 'tpope/vim-fugitive'
+
 
 call plug#end()
 " Plugins END
