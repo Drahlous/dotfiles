@@ -21,6 +21,8 @@ require('telescope').setup{
       "--no-ignore-vcs",
       "--glob", "!**CMakeFiles**",
       "--glob", "!build/**",
+      "--glob", "!__pycache__",
+      "--glob", "!node_modules",
     }
   },
   pickers = {
@@ -43,6 +45,8 @@ require('telescope').setup{
         "--exclude", "**CMakeFiles**",
         "--exclude", "build/**",
         "--exclude", "compile_commands.json",
+        "--exclude", "__pycache__",
+        "--exclude", "node_modules",
       }
     },
   },
