@@ -110,7 +110,7 @@ vim.opt.tabstop = 4
 
 vim.opt.autoindent = true
 vim.opt.smartindent = true
-vim.opt.wrap = true
+vim.opt.wrap = false
 
 vim.opt.linebreak = true
 vim.opt.textwidth = 500
