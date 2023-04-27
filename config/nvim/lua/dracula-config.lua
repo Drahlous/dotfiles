@@ -32,7 +32,7 @@ dracula.setup({
   -- set custom lualine background color
   lualine_bg_color = "#44475a", -- default nil
   -- set italic comment
-  italic_comment = true, -- default false
+  italic_comment = false, -- default false
   -- overrides the default highlights see `:h synIDattr`
   overrides = {
     -- Examples
