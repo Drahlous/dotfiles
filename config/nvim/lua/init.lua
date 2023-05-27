@@ -7,7 +7,6 @@ lsp.setup()
 
 require('treesitter')
 require('treesitter-context')
-require('vscode-cpptools')
 require('lualine-config')
 require('telescope-config')
 require('Comment').setup()
