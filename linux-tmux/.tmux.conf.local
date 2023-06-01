@@ -370,6 +370,10 @@ set-option -g word-separators " =#|{}()[]`'\"*"
 bind -r q previous-window # select previous window
 bind -r e next-window     # select next window
 
+# Neovim True Color
+# https://cyfyifanchen.com/neovim-true-color/
+set-option -ga terminal-overrides ",xterm-256color:Tc"
+
 # -- tpm -----------------------------------------------------------------------
 
 # while I don't use tpm myself, many people requested official support so here
