@@ -67,6 +67,9 @@ Plug 'mmai/wikilink'
 " Git
 Plug 'tpope/vim-fugitive'
 
+" Webdev Filetype Icons
+Plug 'nvim-tree/nvim-web-devicons'
+
 
 call plug#end()
 " Plugins END
