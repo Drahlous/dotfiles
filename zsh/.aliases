@@ -28,3 +28,5 @@ alias lals='ls -lA'
 alias lsal='ls -lA'
 alias lasl='ls -lA'
 
+# Python Virtual Environments
+alias vsrc='source .venv/bin/activate'
