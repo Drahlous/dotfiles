@@ -72,6 +72,8 @@ sudo apt install -y fonts-powerline &> "$LOGFILE"
 sudo apt install -y fonts-hack-ttf &> "$LOGFILE"
 mkfontscale &> "$LOGFILE"
 mkfontdir &> "$LOGFILE"
+mkdir -p ~/.local/share/fonts
+cd ~/.local/share/fonts && curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/FiraCode/Medium/FiraCodeNerdFontMono-Medium.ttf
 fc-cache -f -v &> "$LOGFILE"
 rm fonts.dir && rm fonts.scale
 
