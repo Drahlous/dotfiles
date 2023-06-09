@@ -50,8 +50,6 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
-export TERM=xterm-256color
-
 # Prompt moved to ~/.zsh_prompt
 . ~/.zsh_prompt
 
@@ -64,7 +62,6 @@ export LESS=eFRX
 
 bindkey "^A" vi-beginning-of-line
 bindkey "^E" vi-end-of-line
-
 
 #export NVM_DIR="$HOME/.config/nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
