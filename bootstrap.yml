@@ -49,7 +49,7 @@
 
     - name: Link fd find
       ansible.builtin.file:
-        path: ~/.local/bin/fd
+        path: "{{ local_bin }}/fd"
         src: /usr/bin/fdfind
         state: link
 
@@ -60,10 +60,10 @@
 
     - name: Install FiraCode Nerd Font
       ansible.builtin.shell:
-        cmd: curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/FiraCode/Medium/FiraCodeNerdFontMono-Medium.ttf
+        cmd: curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/FiraCode/Regular/FiraCodeNerdFontMono-Regular.ttf
       args:
         chdir: ~/.local/share/fonts
-        creates: ~/.local/share/fonts/FiraCodeNerdFontMono-Medium.ttf
+        creates: ~/.local/share/fonts/FiraCodeNerdFontMono-Regular.ttf
 
     - name: Update clangd to use clangd-12
       become: yes
@@ -87,19 +87,29 @@
     - name: Install Neovim AppImage
       ansible.builtin.get_url:
         url: https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
-        dest: ~/.local/bin/nvim
+        dest: "{{ local_bin }}/nvim"
         mode: '0760'
 
     - name: Link Neovim Config
       ansible.builtin.file:
         path: ~/.config/nvim
-        src: ~/dotfiles/config/nvim
+        src: "{{ dotfiles_dir }}/config/nvim"
         state: link
 
     - name: Install Neovim Plugins
       ansible.builtin.shell:
-        cmd: ~/.local/bin/nvim --headless +PlugInstall +qall
+        cmd: "{{ local_bin }}/nvim --headless +PlugInstall +qall"
 
     - name: Install pynvim
       ansible.builtin.pip:
         name: pynvim
+
+    - name: Link bashrc
+      ansible.builtin.file:
+        src: "{{ dotfiles_dir }}/bashrc"
+        path: ~/.bashrc
+        state: link
+
+  vars:
+    dotfiles_dir: ~/dotfiles
+    local_bin: ~/.local/bin
