@@ -30,12 +30,32 @@ sudo apt update
 sudo apt install stow
 
 # Create Symlinks
-[[ -f "$HOME/.zshrc" ]] && rm -i "$HOME/.zshrc"
+[[ -f "$HOME/.zshrc" ]] && rm -if "$HOME/.zshrc"
 stow zsh
 stow linux-tmux
 
 # Install required packages and programs
-"$DOTFILES_DIR/install/install-packages.sh"
+sudo apt install -y python3 python3-pip
+python3 -m pip install --user ansible
+ansible-playbook --ask-become-pass bootstrap.yml
+
+#=============
+# Configuration Files
+#=============
+
+# bash
+ln -sTfv "$DOTFILES_DIR/bashrc" "$HOME/.bashrc"
+
+# VSCode
+mkdir -p "$XDG_CONFIG_HOME"/Code/User/
+ln -sTfv "$DOTFILES_DIR/config/Code/User/settings.json" "$XDG_CONFIG_HOME/Code/User/settings.json"
+
+#==============
+# Application Binaries
+#==============
+
+# fuz (Note-taking)
+ln -sTfv "$DOTFILES_DIR/scripts/fuz.sh" "$LOCAL_BIN/fuz"
 
 #==============
 # Set zsh as the default shell
