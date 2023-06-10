@@ -43,20 +43,6 @@ python3 -m pip install --user ansible
 stow zsh
 stow linux-tmux
 
-# bash
-ln -sTfv "$DOTFILES_DIR/bashrc" "$HOME/.bashrc"
-
-# VSCode
-mkdir -p "$XDG_CONFIG_HOME"/Code/User/
-ln -sTfv "$DOTFILES_DIR/config/Code/User/settings.json" "$XDG_CONFIG_HOME/Code/User/settings.json"
-
-#==============
-# Application Binaries
-#==============
-
-# fuz (Note-taking)
-ln -sTfv "$DOTFILES_DIR/scripts/fuz.sh" "$LOCAL_BIN/fuz"
-
 #==============
 # Set zsh as the default shell
 #==============

@@ -109,6 +109,26 @@
         src: "{{ dotfiles_dir }}/bashrc"
         path: ~/.bashrc
         state: link
+        force: true
+
+    - name: Create VSCode config directory
+      ansible.builtin.file:
+        path: ~/.config/Code/User
+        state: directory
+
+    - name: Link VSCode config
+      ansible.builtin.file:
+        src: "{{ dotfiles_dir }}/config/Code/User/settings.json"
+        path: ~/.config/Code/User/settings.json
+        state: link
+        force: true
+
+    - name: Link fuz script
+      ansible.builtin.file:
+        src: "{{ dotfiles_dir }}/scripts/fuz.sh"
+        path: "{{ local_bin }}/fuz"
+        state: link
+        force: true
 
   vars:
     dotfiles_dir: ~/dotfiles
