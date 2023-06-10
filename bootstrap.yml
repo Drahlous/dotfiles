@@ -8,6 +8,7 @@
         name:
           # General Dependencies
           - stow
+          - git
           - ca-certificates
           - gnupg
           - lsb-release
@@ -15,7 +16,8 @@
           - lua5.3
           - snapd
           - cmake
-          - git
+          - python3
+          - python3-pip
           # C++ Essentials
           - build-essential
           - gcc
@@ -31,6 +33,9 @@
           - ripgrep
           - fd-find
           - fzf
+          - xsel
+          - clangd-12
+          - exuberant-ctags
           - shellcheck
         state: present
       when: ansible_distribution == "Ubuntu"
@@ -44,3 +49,22 @@
       ansible.builtin.file:
         path: ~/.local/share/fonts
         state: directory
+
+    - name: Install FiraCode Nerd Font
+      ansible.builtin.shell:
+        cmd: curl -fLO https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/FiraCode/Medium/FiraCodeNerdFontMono-Medium.ttf
+      args:
+        chdir: ~/.local/share/fonts
+        creates: ~/.local/share/fonts/FiraCodeNerdFontMono-Medium.ttf
+
+    - name: Update clangd to use clangd-12
+      community.general.alternatives:
+        name: clangd
+        link: /usr/bin/clangd
+        path: /usr/bin/clangd-12
+        state: selected
+
+    - name: Install oh-my-zsh
+      ansible.builtin.shell: echo "n" | sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+      args:
+        creates: ~/.oh-my-zsh
