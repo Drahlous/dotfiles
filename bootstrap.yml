@@ -36,6 +36,11 @@
       when: ansible_distribution == "Ubuntu"
 
     - name: Link fd find
-      ansible.builtin.command: ln -s /usr/bin/fdfind ~/.local/bin/fd
-      args:
-        creates: ~/.local/bin/fd
+      ansible.builtin.file:
+        path: ~/.local/bin/fd
+        src: /usr/bin/fdfind
+
+    - name: Create Fonts Directory
+      ansible.builtin.file:
+        path: ~/.local/share/fonts
+        state: directory
