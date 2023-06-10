@@ -3,11 +3,16 @@ FROM ubuntu:latest AS base
 RUN apt-get update && apt-get upgrade -y && \
     apt-get install git sudo -y
 
-WORKDIR /root
+RUN useradd -rm -d /home/ubuntu -s /bin/bash -g root -G sudo -u 1001 ubuntu
+RUN echo 'ubuntu:pass' | chpasswd
 
-RUN git clone https://github.com/Drahlous/dotfiles.git
+USER ubuntu
+WORKDIR /home/ubuntu
 
-WORKDIR /root/dotfiles
+ADD . /home/ubuntu/dotfiles
+#RUN git clone https://github.com/Drahlous/dotfiles.git
 
-RUN ./bootstrap.sh
+WORKDIR /home/ubuntu/dotfiles
+
+ENTRYPOINT ["/bin/bash"]
 

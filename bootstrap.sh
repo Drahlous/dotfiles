@@ -29,19 +29,19 @@ export PATHS="$DOTFILES_DIR/zsh/.paths"
 sudo apt update
 sudo apt install stow
 
-# Create Symlinks
-[[ -f "$HOME/.zshrc" ]] && rm -if "$HOME/.zshrc"
-stow zsh
-stow linux-tmux
-
 # Install required packages and programs
 sudo apt install -y python3 python3-pip
 python3 -m pip install --user ansible
-ansible-playbook --ask-become-pass bootstrap.yml
+~/.local/bin/ansible-playbook --ask-become-pass bootstrap.yml
 
 #=============
 # Configuration Files
 #=============
+
+# Create Symlinks
+[[ -f "$HOME/.zshrc" ]] && rm -if "$HOME/.zshrc"
+stow zsh
+stow linux-tmux
 
 # bash
 ln -sTfv "$DOTFILES_DIR/bashrc" "$HOME/.bashrc"

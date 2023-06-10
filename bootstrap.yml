@@ -7,6 +7,8 @@
       apt:
         name:
           # General Dependencies
+          - libfuse2
+          - locales
           - stow
           - git
           - ca-certificates
@@ -40,10 +42,16 @@
         state: present
       when: ansible_distribution == "Ubuntu"
 
+    - name: Get UTF-8 Locale
+      become: yes
+      ansible.builtin.shell:
+        cmd: locale-gen en_US.UTF-8
+
     - name: Link fd find
       ansible.builtin.file:
         path: ~/.local/bin/fd
         src: /usr/bin/fdfind
+        state: link
 
     - name: Create Fonts Directory
       ansible.builtin.file:
@@ -58,6 +66,7 @@
         creates: ~/.local/share/fonts/FiraCodeNerdFontMono-Medium.ttf
 
     - name: Update clangd to use clangd-12
+      become: yes
       community.general.alternatives:
         name: clangd
         link: /usr/bin/clangd
@@ -80,6 +89,12 @@
         url: https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
         dest: ~/.local/bin/nvim
         mode: '0760'
+
+    - name: Link Neovim Config
+      ansible.builtin.file:
+        path: ~/.config/nvim
+        src: ~/dotfiles/config/nvim
+        state: link
 
     - name: Install Neovim Plugins
       ansible.builtin.shell:
