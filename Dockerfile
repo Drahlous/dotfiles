@@ -10,7 +10,6 @@ USER ubuntu
 WORKDIR /home/ubuntu
 
 ADD . /home/ubuntu/dotfiles
-#RUN git clone https://github.com/Drahlous/dotfiles.git
 
 WORKDIR /home/ubuntu/dotfiles
 
