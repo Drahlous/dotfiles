@@ -1,0 +1,41 @@
+- name: Bootstrap dotfiles
+  hosts: localhost
+
+  tasks:
+    - name: Install Packages
+      become: yes
+      apt:
+        name:
+          # General Dependencies
+          - stow
+          - ca-certificates
+          - gnupg
+          - lsb-release
+          - curl
+          - lua5.3
+          - snapd
+          - cmake
+          - git
+          # C++ Essentials
+          - build-essential
+          - gcc
+          - g++
+          - gdb
+          - clang
+          # Terminal and Shell
+          - tmux
+          - zsh
+          - zsh-syntax-highlighting
+          - fonts-powerline
+          - fonts-hack-ttf
+          - ripgrep
+          - fd-find
+          - fzf
+          - shellcheck
+        state: present
+      when: ansible_distribution == "Ubuntu"
+
+    - name: Link fd find
+      ansible.builtin.command: ln -s /usr/bin/fdfind ~/.local/bin/fd
+      args:
+        creates: ~/.local/bin/fd
