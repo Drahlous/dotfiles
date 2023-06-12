@@ -41,6 +41,19 @@
           - shellcheck
         state: present
       when: ansible_distribution == "Ubuntu"
+      # If you see the following error:
+      # "python3-apt must be installed and visible from /usr/bin/python3"
+      # Then you may have multiple versions of python installed.
+      #
+      # This error shows up when the 'python3-apt' package version
+      # is not compatible with the default 'python3' version.
+      #
+      # Solution:
+      # Uncomment the variable definition below and
+      # specify the latest python3 interpreter
+      #
+      # vars:
+      #   ansible_python_interpreter: /usr/bin/python3.10
 
     - name: Get UTF-8 Locale
       become: yes
