@@ -26,6 +26,7 @@
           - g++
           - gdb
           - clang
+          - libstdc++-12-dev
           # Terminal and Shell
           - tmux
           - zsh
