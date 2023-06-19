@@ -6,40 +6,7 @@
       become: yes
       apt:
         name:
-          # General Dependencies
-          - libfuse2
-          - locales
-          - stow
-          - git
-          - ca-certificates
-          - gnupg
-          - lsb-release
-          - curl
-          - lua5.3
-          - snapd
-          - cmake
-          - python3
-          - python3-pip
-          # C++ Essentials
-          - build-essential
-          - gcc
-          - g++
-          - gdb
-          - clang
-          - libstdc++-12-dev
-          # Terminal and Shell
-          - tmux
-          - zsh
-          - zsh-syntax-highlighting
-          - fonts-powerline
-          - fonts-hack-ttf
-          - ripgrep
-          - fd-find
-          - fzf
-          - xsel
-          - clangd-12
-          - exuberant-ctags
-          - shellcheck
+          "{{ packages }}"
         state: present
       when: ansible_distribution == "Ubuntu"
       # If you see the following error:
@@ -147,3 +114,39 @@
   vars:
     dotfiles_dir: ~/dotfiles
     local_bin: ~/.local/bin
+    packages:
+      # General Dependencies
+      - libfuse2
+      - locales
+      - stow
+      - git
+      - ca-certificates
+      - gnupg
+      - lsb-release
+      - curl
+      - lua5.3
+      - snapd
+      - cmake
+      - python3
+      - python3-pip
+      # C++ Essentials
+      - build-essential
+      - gcc
+      - g++
+      - gdb
+      - clang
+      - libstdc++-12-dev
+      - bear
+      # Terminal and Shell
+      - tmux
+      - zsh
+      - zsh-syntax-highlighting
+      - fonts-powerline
+      - fonts-hack-ttf
+      - ripgrep
+      - fd-find
+      - fzf
+      - xsel
+      - clangd-12
+      - exuberant-ctags
+      - shellcheck
