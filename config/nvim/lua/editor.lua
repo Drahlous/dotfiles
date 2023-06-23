@@ -6,6 +6,21 @@ vim.cmd('colorscheme dracula')
 -------------------------------------------------------------------------------
 -- Settings START
 
+-- Python Indentation Settings
+-- Note that Nvim Lua provides a "bridge" to vimscript values
+-- Objects passed over the bridge are COPIED.
+-- When you want to change an existing dictionary, you CANNOT DIRECTLY ACCESS EXISTING FIELDS.
+-- Instead you must overwrite the entire dictionary.
+-- Details at :help lua-vimscript
+local pyindent = {}
+pyindent.closed_paren_align_last_line = false
+pyindent.disable_parenthesis_indenting = false
+pyindent.open_paren = 'shiftwidth()'
+pyindent.nested_paren = 'shiftwidth()'
+pyindent.continue = 'shiftwidth()'
+pyindent.searchpair_timeout = 150
+vim.g.python_indent = pyindent
+
 -- Set up ctags
 vim.opt.tags={'./tags', 'tags'}
 
