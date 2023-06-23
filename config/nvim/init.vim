@@ -75,13 +75,3 @@ call plug#end()
 
 " Load lua config
 lua require('init')
-
-" Python Indentation Settings
-let g:python_indent = {}
-let g:python_indent.closed_paren_align_last_line = v:false
-let g:python_indent.disable_parenthesis_indenting = v:false
-let g:python_indent.open_paren = 'shiftwidth()'
-let g:python_indent.nested_paren = 'shiftwidth()'
-let g:python_indent.continue = 'shiftwidth()'
-let g:python_indent.searchpair_timeout = 150
-
