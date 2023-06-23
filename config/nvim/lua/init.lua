@@ -6,7 +6,7 @@ lsp.preset('recommended')
 lsp.setup()
 
 require('treesitter')
-require('treesitter-context')
+require('treesitter-context-config')
 require('lualine-config')
 require('telescope-config')
 require('Comment').setup()

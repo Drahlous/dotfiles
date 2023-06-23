@@ -1,8 +1,6 @@
-set runtimepath^=~/.vim runtimepath+=~/.vim/after
-
 "-----------------------------------------------------------------------------
 " Plugins START
-call plug#begin("~/.vim/plugged")
+call plug#begin()
 
 " FZF
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
