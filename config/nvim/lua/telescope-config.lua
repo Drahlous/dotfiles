@@ -35,7 +35,9 @@ require('telescope').setup{
     -- builtin picker
     find_files = {
       find_command = {
-        "fd", "--type", "f", "--no-ignore",
+        "fd",
+        "--type", "f",
+        "--no-ignore",
         "--exclude", "*.o",
         "--exclude", "*.o.c",
         "--exclude", "*.a",
@@ -47,6 +49,7 @@ require('telescope').setup{
         "--exclude", "compile_commands.json",
         "--exclude", "__pycache__",
         "--exclude", "node_modules",
+        "--exclude", "*.db",
       }
     },
   },
@@ -58,4 +61,3 @@ require('telescope').setup{
     -- please take a look at the readme of the extension you want to configure
   }
 }
-
