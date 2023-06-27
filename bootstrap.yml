@@ -87,6 +87,13 @@
       ansible.builtin.pip:
         name: pynvim
 
+    - name: Install Python Linters and Formatters
+      ansible.builtin.pip:
+        name:
+          - pydocstyle
+          - pylint
+          - black
+
     - name: Link bashrc
       ansible.builtin.file:
         src: "{{ dotfiles_dir }}/bashrc"

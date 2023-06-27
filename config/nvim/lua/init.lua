@@ -5,6 +5,8 @@ local lsp = require('lsp-zero')
 lsp.preset('recommended')
 lsp.setup()
 
+require('null-ls-config')
+
 require('treesitter')
 require('treesitter-context-config')
 require('lualine-config')
@@ -20,4 +22,3 @@ require('filetype')
 -- Remap Keys
 require('remap')
 require('vim-fugitive')
-
