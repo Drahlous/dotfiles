@@ -26,10 +26,7 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
-
--- Use <Tab> and <S-Tab> to navigate through popup menu
---inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
---inoremap <expr> <S-Tab> pumvisible() ? "\<C-n>" : "\<S-Tab>"
+vim.keymap.set('n', '<leader>gf', vim.lsp.buf.format, opts)
 
 -- Tabs
 vim.keymap.set('n', '<leader>l', ':tabnext<cr>')
@@ -43,4 +40,3 @@ vim.keymap.set('v', '<LeftRelease>', '"*ygv')
 
 -- Disable highlight when <leader><cr> is pressed
 vim.keymap.set('n', '<leader><cr>', ':noh<cr>')
-

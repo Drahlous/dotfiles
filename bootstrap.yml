@@ -93,6 +93,7 @@
           - pydocstyle
           - pylint
           - black
+          - isort
 
     - name: Link bashrc
       ansible.builtin.file:
