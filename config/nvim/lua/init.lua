@@ -14,10 +14,13 @@ require('telescope-config')
 require('Comment').setup()
 require('aerial').setup({})
 
+
+
 -- Editor Settings
 require('dracula-config')
 require('editor')
 require('filetype')
+require('diagnostic')
 
 -- Remap Keys
 require('remap')
