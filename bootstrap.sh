@@ -43,9 +43,4 @@ python3 -m pip install --user ansible
 stow zsh
 stow linux-tmux
 
-#==============
-# Set zsh as the default shell
-#==============
-chsh -s "$(command -v zsh)"
-
 printf "\nFinished Bootstrapping!\n\n"

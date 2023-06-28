@@ -160,3 +160,15 @@
       - clangd-12
       - exuberant-ctags
       - shellcheck
+
+- name: Change user shell to zsh
+  hosts: localhost
+  become: no
+  vars:
+    user_id: "{{ ansible_user_id}}"
+  tasks:
+    - name: Update user shell to zsh
+      become: yes
+      user:
+        name: "{{ user_id }}"
+        shell: /bin/zsh
