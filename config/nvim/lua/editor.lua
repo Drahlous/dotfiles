@@ -78,7 +78,7 @@ vim.opt.wildmenu = true
 vim.opt.ruler = true
 
 -- The commandbar height
-vim.opt.cmdheight = 2
+vim.opt.cmdheight = 1
 
 -- Hide abandoned buffers
 vim.opt.hid = true
