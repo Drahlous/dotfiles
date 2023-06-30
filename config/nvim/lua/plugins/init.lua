@@ -3,8 +3,6 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope.nvim",
 
-    -- Dracula Theme
-    "Mofiqul/dracula.nvim",
 
     -- Treesitter
     {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate", name = "nvim-treesitter"},
@@ -16,10 +14,6 @@ return {
 
     -- Comment
     "numToStr/Comment.nvim",
-
-    -- Status Line
-    {"nvim-lualine/lualine.nvim", name = "lualine.nvim"},
-    {"arkav/lualine-lsp-progress", dependencies = "lualine.nvim"},
 
     -- Language Server
     "neovim/nvim-lspconfig",
