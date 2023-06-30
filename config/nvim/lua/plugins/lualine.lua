@@ -3,6 +3,7 @@ return {
     {
         "nvim-lualine/lualine.nvim",
         name = "lualine",
+        event = "VeryLazy",
         opts = {
             options = {
                 icons_enabled = true,
@@ -34,5 +35,8 @@ return {
         },
     },
     -- Lualine Lsp Progress
-    {"arkav/lualine-lsp-progress"},
+    {
+        "arkav/lualine-lsp-progress",
+        event = "VeryLazy",
+    },
 }
