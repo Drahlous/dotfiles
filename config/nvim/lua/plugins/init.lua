@@ -35,9 +35,6 @@ return {
     -- Wikilinks
     "mmai/wikilink",
 
-    -- Git
-    "tpope/vim-fugitive",
-
     -- Webdev Filetype Icons
     "nvim-tree/nvim-web-devicons",
 }

@@ -37,4 +37,3 @@ require("diagnostic")
 
 -- Remap Keys
 require("remap")
-require("vim-fugitive")
