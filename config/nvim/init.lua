@@ -26,8 +26,6 @@ lsp.setup()
 
 require("null-ls-config")
 
-require("treesitter")
-require("treesitter-context-config")
 require("telescope-config")
 require("Comment").setup()
 require("aerial").setup({})

@@ -3,12 +3,6 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope.nvim",
 
-
-    -- Treesitter
-    {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate", name = "nvim-treesitter"},
-    {"nvim-treesitter/nvim-treesitter-context", dependencies = {"nvim-treesitter"}},
-    {"nvim-treesitter/playground", cmd = "TSPlaygroundToggle", dependencies = {"nvim-treesitter"}},
-
     -- Aerial
     "stevearc/aerial.nvim",
 
