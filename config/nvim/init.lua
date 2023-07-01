@@ -24,7 +24,6 @@ local lsp = require("lsp-zero")
 lsp.preset("recommended")
 lsp.setup()
 
-require("Comment").setup()
 require("aerial").setup({})
 
 -- Editor Settings

@@ -5,9 +5,6 @@ return {
     -- Aerial
     "stevearc/aerial.nvim",
 
-    -- Comment
-    "numToStr/Comment.nvim",
-
     -- Language Server
     "neovim/nvim-lspconfig",
     "williamboman/mason.nvim",
