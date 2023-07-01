@@ -26,7 +26,6 @@ lsp.setup()
 
 require("null-ls-config")
 
-require("telescope-config")
 require("Comment").setup()
 require("aerial").setup({})
 

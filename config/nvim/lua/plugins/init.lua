@@ -1,7 +1,6 @@
 return {
     -- Frameworks
     "nvim-lua/plenary.nvim",
-    "nvim-telescope/telescope.nvim",
 
     -- Aerial
     "stevearc/aerial.nvim",
