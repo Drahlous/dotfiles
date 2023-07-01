@@ -1,5 +1,6 @@
 return {
     "Mofiqul/dracula.nvim",
+    priority = 1000,
     opts = {
         -- customize dracula color palette
         colors = {
