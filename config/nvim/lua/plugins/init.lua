@@ -2,9 +2,6 @@ return {
     -- Frameworks
     "nvim-lua/plenary.nvim",
 
-    -- Aerial
-    "stevearc/aerial.nvim",
-
     -- Language Server
     "neovim/nvim-lspconfig",
     "williamboman/mason.nvim",

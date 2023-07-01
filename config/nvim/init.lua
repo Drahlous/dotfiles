@@ -24,8 +24,6 @@ local lsp = require("lsp-zero")
 lsp.preset("recommended")
 lsp.setup()
 
-require("aerial").setup({})
-
 -- Editor Settings
 require("editor")
 require("filetype")

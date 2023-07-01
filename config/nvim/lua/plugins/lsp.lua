@@ -33,4 +33,11 @@ return {
 			}
 		end,
 	},
+    -- Aerial
+    {
+        "stevearc/aerial.nvim",
+		event = { "BufReadPre", "BufNewFile" },
+        cmd = { "AerialToggle", "AerialOpen", "AerialNavToggle", "AerialNavOpen" },
+        opts = {},
+    }
 }
