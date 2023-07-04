@@ -12,6 +12,5 @@ config.color_scheme = 'Dracula (Official)'
 config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false
 config.window_decorations = "RESIZE"
-config.font = wezterm.font 'Fira Code'
 
 return config
