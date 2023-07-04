@@ -17,11 +17,12 @@ vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappin
 -- Install Plugins
 require("lazy").setup("plugins")
 
--- Plugin Configs
--- Learn the keybindings, see :help lsp-zero-keybindings
--- Learn to configure LSP servers, see :help lsp-zero-api-showcase
-local lsp = require("lsp-zero")
-lsp.preset("recommended")
+local lsp = require("lsp-zero").preset("recommended")
+
+lsp.on_attach(function(client, bufnr)
+  lsp.default_keymaps({buffer = bufnr})
+end)
+
 lsp.setup()
 
 -- Editor Settings

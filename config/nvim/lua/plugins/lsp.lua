@@ -1,4 +1,46 @@
 return {
+
+	-- Nvim Lsp Config
+	{ "neovim/nvim-lspconfig" },
+
+	-- Mason
+	{ "williamboman/mason.nvim" },
+	{ "williamboman/mason-lspconfig.nvim" },
+
+	-- Autocompletion
+	"hrsh7th/nvim-cmp",
+	"hrsh7th/cmp-buffer",
+	"hrsh7th/cmp-path",
+	"saadparwaiz1/cmp_luasnip",
+	"hrsh7th/cmp-nvim-lsp",
+	"hrsh7th/cmp-nvim-lua",
+	"hrsh7th/cmp-cmdline",
+
+	-- Snippets
+	"L3MON4D3/LuaSnip",
+
+	-- Lsp Zero
+	{
+		"VonHeikemen/lsp-zero.nvim",
+		branch = "v2.x",
+		dependencies = {
+			-- LSP Support
+			{ "neovim/nvim-lspconfig" }, -- Required
+			{ -- Optional
+				"williamboman/mason.nvim",
+				build = function()
+					pcall(vim.cmd, "MasonUpdate")
+				end,
+			},
+			{ "williamboman/mason-lspconfig.nvim" }, -- Optional
+
+			-- Autocompletion
+			{ "hrsh7th/nvim-cmp" }, -- Required
+			{ "hrsh7th/cmp-nvim-lsp" }, -- Required
+			{ "L3MON4D3/LuaSnip" }, -- Required
+		},
+	},
+
 	-- Null LS
 	{
 		"jose-elias-alvarez/null-ls.nvim",
@@ -33,11 +75,12 @@ return {
 			}
 		end,
 	},
-    -- Aerial
-    {
-        "stevearc/aerial.nvim",
+
+	-- Aerial
+	{
+		"stevearc/aerial.nvim",
 		event = { "BufReadPre", "BufNewFile" },
-        cmd = { "AerialToggle", "AerialOpen", "AerialNavToggle", "AerialNavOpen" },
-        opts = {},
-    }
+		cmd = { "AerialToggle", "AerialOpen", "AerialNavToggle", "AerialNavOpen" },
+		opts = {},
+	},
 }
