@@ -113,6 +113,12 @@
         state: link
         force: true
 
+    - name: Link Wezterm Config
+      ansible.builtin.file:
+        path: ~/.config/wezterm
+        src: "{{ dotfiles_dir }}/config/wezterm"
+        state: link
+
   vars:
     dotfiles_dir: ~/dotfiles
     local_bin: ~/.local/bin
