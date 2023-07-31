@@ -32,3 +32,10 @@ require("diagnostic")
 
 -- Remap Keys
 require("remap")
+
+-- Enable WIP Oxbow
+OXBOW_ENABLED=false
+if OXBOW_ENABLED then
+    oxbow_path = os.getenv("HOME") .. '/programming/Oxbow/cflow.lua'
+    dofile(oxbow_path)
+end
