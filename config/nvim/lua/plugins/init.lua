@@ -10,4 +10,7 @@ return {
 
     -- Webdev Filetype Icons
     "nvim-tree/nvim-web-devicons",
+
+    -- Oxbow
+    "Drahlous/Oxbow",
 }
