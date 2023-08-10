@@ -23,6 +23,7 @@ return {
                     "--line-number",
                     "--column",
                     "--smart-case",
+                    "--trim",
                     "--no-ignore-vcs",
                     "--glob", "!**CMakeFiles**",
                     "--glob", "!build/**",
