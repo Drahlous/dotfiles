@@ -9,5 +9,5 @@ return {
     "nvim-tree/nvim-web-devicons",
 
     -- Oxbow
-    "Drahlous/Oxbow",
+    "drahlous/oxbow",
 }
