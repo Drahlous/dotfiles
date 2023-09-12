@@ -29,6 +29,7 @@ return {
                     "--glob", "!build/**",
                     "--glob", "!__pycache__",
                     "--glob", "!node_modules",
+                    "--glob", "!*.log",
                 }
             },
             pickers = {
