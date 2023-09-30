@@ -17,14 +17,6 @@ vim.g.mapleader = " " -- Make sure to set `mapleader` before lazy so your mappin
 -- Install Plugins
 require("lazy").setup("plugins")
 
-local lsp = require("lsp-zero").preset("recommended")
-
-lsp.on_attach(function(client, bufnr)
-  lsp.default_keymaps({buffer = bufnr})
-end)
-
-lsp.setup()
-
 -- Editor Settings
 require("editor")
 require("filetype")
