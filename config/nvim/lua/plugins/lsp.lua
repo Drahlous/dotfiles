@@ -17,6 +17,9 @@ return {
             pcall(vim.cmd, "MasonUpdate")
         end,
     },
+    {
+        "williamboman/mason-lspconfig.nvim",
+    },
 
     -- Autocompletion
     {
@@ -75,6 +78,14 @@ return {
 
             -- (Optional) Configure lua language server for neovim
             require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+
+            -- Automatic installation detailed at https://github.com/VonHeikemen/lsp-zero.nvim/blob/v2.x/doc/md/lsp.md#automatic-installs
+            lsp.ensure_installed({
+                'clangd',
+                'pyright',
+                'lua_ls',
+                'gopls',
+            })
 
             lsp.setup()
         end
