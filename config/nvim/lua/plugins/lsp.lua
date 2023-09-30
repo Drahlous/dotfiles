@@ -91,9 +91,9 @@ return {
         end
     },
 
-    -- Null LS
+    -- None LS (community managed version of null-ls)
     {
-        "jose-elias-alvarez/null-ls.nvim",
+        "nvimtools/none-ls.nvim",
         event = { "BufReadPre", "BufNewFile" },
         opts = function()
             local null_ls = require("null-ls")
