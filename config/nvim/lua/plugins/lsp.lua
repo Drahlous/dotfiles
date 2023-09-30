@@ -85,6 +85,10 @@ return {
                 'pyright',
                 'lua_ls',
                 'gopls',
+                'bashls',
+                'ansiblels',
+                'jsonls',
+                'marksman',
             })
 
             lsp.setup()
