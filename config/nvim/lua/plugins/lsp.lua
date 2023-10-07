@@ -29,7 +29,7 @@ return {
 
             -- And you can configure cmp even more, if you want to.
             local cmp = require('cmp')
-            local cmp_action = require('lsp-zero.cmp').action() 
+            local cmp_action = require('lsp-zero.cmp').action()
 
             cmp.setup({
                 mapping = {
@@ -60,7 +60,7 @@ return {
 
             local lsp = require('lsp-zero')
 
-            lsp.on_attach(function(client, bufnr)
+            lsp.on_attach(function(_, bufnr)
                 -- see :help lsp-zero-keybindings
                 -- to learn the available actions
                 lsp.default_keymaps({buffer = bufnr})
