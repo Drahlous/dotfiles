@@ -83,7 +83,6 @@ export CLASSPATH=".:/usr/local/lib/antlr-4.10.1-complete.jar:$CLASSPATH"
 alias antlr4='java -Xmx500M -cp "/usr/local/lib/antlr-4.10.1-complete.jar:$CLASSPATH" org.antlr.v4.Tool'
 alias grun='java -Xmx500M -cp "/usr/local/lib/antlr-4.10.1-complete.jar:$CLASSPATH" org.antlr.v4.gui.TestRig'
 
-
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
 
@@ -96,3 +95,6 @@ export LESS_TERMCAP_us=$'\e[01;36m'     # begin underline
 export LESS_TERMCAP_me=$'\e[0m'         # reset bold/blink
 export LESS_TERMCAP_se=$'\e[0m'         # reset reverse video
 export LESS_TERMCAP_ue=$'\e[0m'         # reset underline
+
+# Add user scripts to path
+export PATH=$PATH:${HOME}/scripts
