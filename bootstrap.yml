@@ -87,6 +87,11 @@
           - black
           - isort
 
+    - name: Install Pre-Commit
+      ansible.builtin.pip:
+        name:
+          - pre-commit
+
     - name: Link bashrc
       ansible.builtin.file:
         src: "{{ dotfiles_dir }}/bashrc"

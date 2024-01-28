@@ -103,7 +103,7 @@ vim.opt.belloff = 'all'
 --
 -- Colors and Fonts
 --
-vim.opt.syntax = enable		-- Enable syntax highlighting
+vim.opt.syntax = 'enable'		-- Enable syntax highlighting
 vim.opt.background = 'dark'
 vim.opt.termguicolors = true
 
