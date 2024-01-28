@@ -38,4 +38,3 @@ C_c     Create new session
 $       Rename session
 
 ```
-

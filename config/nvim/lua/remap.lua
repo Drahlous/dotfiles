@@ -26,7 +26,7 @@ vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts)
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts)
-vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, { noremap = true, silent = true, desc = "Format Buffer"})
+vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, { noremap = true, silent = true, desc = "Format Buffer" })
 
 -- Tabs
 vim.keymap.set("n", "<leader>l", ":tabnext<cr>", { desc = "Next Tab" })

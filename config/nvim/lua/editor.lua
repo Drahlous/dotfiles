@@ -1,7 +1,7 @@
 -- Editor Settings
 
 -- Dracula Color Scheme
-vim.cmd('colorscheme dracula')
+vim.cmd("colorscheme dracula")
 
 -------------------------------------------------------------------------------
 -- Settings START
@@ -15,14 +15,14 @@ vim.cmd('colorscheme dracula')
 local pyindent = {}
 pyindent.closed_paren_align_last_line = false
 pyindent.disable_parenthesis_indenting = false
-pyindent.open_paren = 'shiftwidth()'
-pyindent.nested_paren = 'shiftwidth()'
-pyindent.continue = 'shiftwidth()'
+pyindent.open_paren = "shiftwidth()"
+pyindent.nested_paren = "shiftwidth()"
+pyindent.continue = "shiftwidth()"
 pyindent.searchpair_timeout = 150
 vim.g.python_indent = pyindent
 
 -- Set up ctags
-vim.opt.tags={'./tags', 'tags'}
+vim.opt.tags = { "./tags", "tags" }
 
 --
 -- General
@@ -35,17 +35,17 @@ vim.opt.relativenumber = true
 -- menuone: popup even when there's only one match
 -- noinsert: Do not insert text until a selection is made
 -- noselect: Do not select, force user to select one from the menu
-vim.opt.completeopt={'menuone', 'noinsert', 'noselect'}
+vim.opt.completeopt = { "menuone", "noinsert", "noselect" }
 
 -- Avoid showing extra messages when using completion
-vim.opt.shortmess:append('c')
+vim.opt.shortmess:append("c")
 
 -- have a fixed column for the diagnostics to appear in
 -- this removes the jitter when warnings/errors flow in
-vim.opt.signcolumn = 'yes'
+vim.opt.signcolumn = "yes"
 
 -- Use System Clipboard
-vim.opt.clipboard = 'unnamedplus'
+vim.opt.clipboard = "unnamedplus"
 
 -- Sets how many lines of history Vim has to remember
 vim.opt.history = 500
@@ -56,12 +56,12 @@ vim.opt.ttyfast = true
 
 -- Enable mouse in normal & visual modes
 -- Allows for dragging of split-views
-vim.opt.mouse = 'nv'
+vim.opt.mouse = "nv"
 
 --
 -- Navigating tabs, windows, buffers
 --
-vim.opt.switchbuf = {'useopen', 'usetab'}
+vim.opt.switchbuf = { "useopen", "usetab" }
 vim.opt.stal = 2
 
 --
@@ -84,33 +84,33 @@ vim.opt.cmdheight = 1
 vim.opt.hid = true
 
 -- Set backspace
-vim.opt.backspace = {'eol', 'start', 'indent'}
-vim.opt.whichwrap:append('<', '>', 'h', 'l')
+vim.opt.backspace = { "eol", "start", "indent" }
+vim.opt.whichwrap:append("<", ">", "h", "l")
 
 ---- Search
-vim.opt.ignorecase = true	-- Ignore case when searching
+vim.opt.ignorecase = true -- Ignore case when searching
 vim.opt.smartcase = true
-vim.opt.hlsearch = true		-- Highlight search things
-vim.opt.incsearch = true	-- Make search act like search in modern browsers
+vim.opt.hlsearch = true -- Highlight search things
+vim.opt.incsearch = true -- Make search act like search in modern browsers
 -- Don't redraw while executing macros
 --vim.opt.nolazyredraw = true
-vim.opt.magic = true        -- Set magic on, for regular expressions
-vim.opt.showmatch = true	-- Show matching bracets when text indicator is over them
-vim.opt.mat = 2             -- How many tenths of second to blink
+vim.opt.magic = true -- Set magic on, for regular expressions
+vim.opt.showmatch = true -- Show matching bracets when text indicator is over them
+vim.opt.mat = 2 -- How many tenths of second to blink
 -- No sound on errors
-vim.opt.belloff = 'all'
+vim.opt.belloff = "all"
 
 --
 -- Colors and Fonts
 --
-vim.opt.syntax = 'enable'		-- Enable syntax highlighting
-vim.opt.background = 'dark'
+vim.opt.syntax = "enable" -- Enable syntax highlighting
+vim.opt.background = "dark"
 vim.opt.termguicolors = true
 
 ---
 --- Files, backups
 ---
-vim.opt.ffs = {'unix', 'dos', 'mac'} -- Default file types
+vim.opt.ffs = { "unix", "dos", "mac" } -- Default file types
 
 --
 -- Text, tab and indent related
@@ -138,4 +138,3 @@ vim.opt.laststatus = 2
 
 -- Settings END
 ---------------------------------------------------------------------------------
-

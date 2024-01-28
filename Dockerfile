@@ -14,4 +14,3 @@ ADD . /home/ubuntu/dotfiles
 WORKDIR /home/ubuntu/dotfiles
 
 ENTRYPOINT ["/bin/bash"]
-

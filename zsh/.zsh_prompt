@@ -6,4 +6,3 @@ PROMPT+='%{$fg[cyan]%}➜%{$reset_color%} $(git_prompt_info)'
 
 # Override the git prompt dirty sign to use unequal instead of cross
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%}) %{$fg[yellow]%}≠"
-

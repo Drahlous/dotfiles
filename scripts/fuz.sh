@@ -19,4 +19,3 @@ select_file() {
 }
 
 main ""
-
