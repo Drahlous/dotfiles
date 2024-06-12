@@ -72,7 +72,7 @@ return {
 			-- Automatic installation detailed at https://github.com/VonHeikemen/lsp-zero.nvim/blob/v2.x/doc/md/lsp.md#automatic-installs
 			lsp.ensure_installed({
 				"clangd",
-				"pyright",
+				"jedi_language_server",
 				"lua_ls",
 				"gopls",
 				"bashls",
