@@ -79,6 +79,8 @@ return {
 				"ansiblels",
 				"jsonls",
 				"marksman",
+				"docker_compose_language_service",
+				"dockerls",
 			})
 
 			lsp.setup()
