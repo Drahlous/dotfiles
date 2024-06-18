@@ -163,6 +163,7 @@
       - clangd-12
       - exuberant-ctags
       - shellcheck
+      - picocom
 
 - name: Change user shell to zsh
   hosts: localhost
