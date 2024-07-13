@@ -46,12 +46,12 @@
         chdir: ~/.local/share/fonts
         creates: ~/.local/share/fonts/FiraCodeNerdFontMono-Regular.ttf
 
-    - name: Update clangd to use clangd-12
+    - name: Update clangd to use clangd-18
       become: yes
       community.general.alternatives:
         name: clangd
         link: /usr/bin/clangd
-        path: /usr/bin/clangd-12
+        path: /usr/bin/clangd-18
         state: selected
 
     - name: Install oh-my-zsh
@@ -160,7 +160,7 @@
       - fd-find
       - fzf
       - xsel
-      - clangd-12
+      - clangd
       - exuberant-ctags
       - shellcheck
       - picocom
