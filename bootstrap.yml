@@ -146,6 +146,8 @@
       - build-essential
       - gcc
       - g++
+      # Install g++-14 to fix clangd on Ubuntu 24.04
+      - g++-14
       - gdb
       - clang
       - libstdc++-12-dev
