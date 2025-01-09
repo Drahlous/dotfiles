@@ -38,9 +38,9 @@ source $ZSH/oh-my-zsh.sh
 export PATH="$HOME/.local/bin:$PATH"
 
 # 0 - Owner (Keep all permissions)
-# 2 - Group (Remove write permissions)
-# 7 - World (Remove all permissions)
-umask 027
+# 0 - Group (Keep all permissions)
+# 2 - World (Remove write permissions)
+umask 0002
 
 # For backspace inserting ^? in vi
 stty erase '^?'
