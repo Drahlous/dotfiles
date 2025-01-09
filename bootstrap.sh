@@ -31,7 +31,9 @@ sudo apt install stow
 
 # Install required packages and programs
 sudo apt install -y python3 python3-pip
-sudo apt install -y ansible
+sudo apt install pipx
+pipx ensurepath
+pipx install --include-deps ansible
 ansible-playbook --ask-become-pass bootstrap.yml
 
 #=============
