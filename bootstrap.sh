@@ -31,8 +31,8 @@ sudo apt install stow
 
 # Install required packages and programs
 sudo apt install -y python3 python3-pip
-python3 -m pip install --user ansible
-~/.local/bin/ansible-playbook --ask-become-pass bootstrap.yml
+sudo apt install -y ansible
+ansible-playbook --ask-become-pass bootstrap.yml
 
 #=============
 # Configuration Files
