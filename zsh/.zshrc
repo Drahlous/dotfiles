@@ -93,3 +93,6 @@ export LESS_TERMCAP_ue=$'\e[0m'         # reset underline
 
 # Add user scripts to path
 export PATH=$PATH:${HOME}/scripts
+
+# Add local overrides if they exist
+. ~/.localrc || true
